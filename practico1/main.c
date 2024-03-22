@@ -1,20 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <sys/types.h>
 #include "utils.h"
 
-//
+//MS(a = randomMatrix(i), interval);
+
+
+/*  Linea de cache 64 bytes (16 integer)
+ *
+ *
+ *
+ */
+
+int* llenarL1(){
+    int n = tamanioL1 * 1000 / sizeof(int);
+    int * a = randomArray(n);
+    return a;
+}
+
+
+
+int* llenarL2(){
+    int n = (tamanioL1 + tamanioL2) * 1000 / sizeof(int);
+    int * a = randomArray(n);
+    return a;
+}
+
+int* llenarL3(){
+    int n = (tamanioL3 + tamanioL2 + tamanioL1)* 1000 / sizeof(int);
+    int * a = randomArray(n);
+    return a;
+}
+
+
+
+void tareaParaArray(int* a, int n) {
+
+    for (int i = 0; i < n; i++) {
+        a[i] = a[i] + 2;
+    }
+}
+
 
 int main() {
-    setCPU();
-    int n = 5000;
-    int **a;
 
-    for (int i = 1; i <= n; i++) {
-
-        MS(a = createMatrix(i), interval);
-            freeMatrix(a, i);
-            printf("%d,%f  \n", i, interval);
+    if (freopen("output.txt", "w", stdout) == NULL) {
+        perror("freopen failed");
+        return EXIT_FAILURE;
     }
+
+    int n = (80 + 1280 + 25000) * 1000 / sizeof(int);
+    printf("n: %d\n", n);
+    int * a = randomArray(n);
+
+    for (int i = 0; i < n; i++) {
+        MS(tareaParaArray(a, n), interval);
+        printf("%d,%f\n", i, interval);
+    }
+
+    free(a);
 }

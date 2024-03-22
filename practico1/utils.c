@@ -2,9 +2,10 @@
 // Created by amartinez on 20/3/2024.
 //
 
+#include <stdlib.h>
 #include "utils.h"
 
-int ** createMatrix(int n){
+int ** randomMatrix(int n){
     int **a = malloc(n * sizeof(int *));
 
     for (int i = 0; i < n; i++) {
@@ -16,6 +17,16 @@ int ** createMatrix(int n){
     return a;
 }
 
+int* randomArray(int n){
+    int* a = malloc(n * sizeof(int *));
+
+    for (int i = 0; i < n; i++) {
+        a[i] = rand();
+    }
+    return a;
+}
+
+
 void freeMatrix(int ** a, int n) {
     for (int i = 0; i < n; i++) {
         free(a[i]);
@@ -23,7 +34,8 @@ void freeMatrix(int ** a, int n) {
     free(a);
 }
 
-//{
+
+//void setCPU{
 //    DWORD_PTR processAffinityMask = 1;
 //
 //    HANDLE hProcess = GetCurrentProcess();
