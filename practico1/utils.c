@@ -18,7 +18,7 @@ int ** randomMatrix(int n){
 }
 
 int* randomArray(int n){
-    int* a = malloc(n * sizeof(int *));
+    int* a = malloc(n * sizeof(int));
 
     for (int i = 0; i < n; i++) {
         a[i] = rand();
@@ -26,6 +26,14 @@ int* randomArray(int n){
     return a;
 }
 
+int* sequentialArray(int n){
+    int* a = malloc(n * sizeof(int));
+
+    for (int i = 0; i < n; i++) {
+        a[i] = i;
+    }
+    return a;
+}
 
 void freeMatrix(int ** a, int n) {
     for (int i = 0; i < n; i++) {
@@ -33,6 +41,16 @@ void freeMatrix(int ** a, int n) {
     }
     free(a);
 }
+
+void shuffleArray(int* array, int n) {
+    for (int i = n - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
 
 
 //void setCPU{

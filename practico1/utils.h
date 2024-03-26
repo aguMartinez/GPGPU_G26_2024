@@ -22,7 +22,7 @@
             clock_gettime(CLOCK_MONOTONIC, &t_ini);                                                          \
             f;                                                                                               \
             clock_gettime(CLOCK_MONOTONIC, &t_fin);                                                          \
-            elap = 1000000000 * (t_fin.tv_sec - t_ini.tv_sec) + (t_fin.tv_nsec - t_ini.tv_nsec)/1000000.0;         \
+            elap = 1000000000 * (t_fin.tv_sec - t_ini.tv_sec) + (t_fin.tv_nsec - t_ini.tv_nsec);         \
         }
 
 #define tamanioL1 80 //kb
@@ -36,6 +36,11 @@ int** randomMatrix(int n);
 void freeMatrix(int ** a, int n);
 
 int* randomArray(int n);
+
+void shuffleArray(int* array, int n);
+
+int* sequentialArray(int n);
+
 
 //void setCPU();
 
