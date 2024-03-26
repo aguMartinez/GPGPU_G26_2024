@@ -3,7 +3,9 @@
 //
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "utils.h"
+
 
 int ** randomMatrix(int n){
     int **a = malloc(n * sizeof(int *));
@@ -51,12 +53,17 @@ void shuffleArray(int* array, int n) {
     }
 }
 
-struct cacheInicial cacheInicial(int *pInt, void *pVoid, void *pVoid1) {
-    struct cacheInicial result;
-    result.L1 = pInt;
-    result.L2 = pVoid;
-    result.L3 = pVoid1;
-    return result;
+void setConsoleAsStdOutput(){
+#ifdef _WIN32
+    if (freopen("CON", "w", stdout) == NULL) {
+        perror("freopen failed");
+    }
+#else
+    if (freopen("/dev/tty", "a", stdout) == NULL) {
+        perror("freopen failed");
+        return -1;
+    }
+#endif
 }
 
 //void setCPU{
