@@ -51,7 +51,13 @@ void shuffleArray(int* array, int n) {
     }
 }
 
-
+struct cacheInicial cacheInicial(int *pInt, void *pVoid, void *pVoid1) {
+    struct cacheInicial result;
+    result.L1 = pInt;
+    result.L2 = pVoid;
+    result.L3 = pVoid1;
+    return result;
+}
 
 //void setCPU{
 //    DWORD_PTR processAffinityMask = 1;

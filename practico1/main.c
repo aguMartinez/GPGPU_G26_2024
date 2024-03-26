@@ -6,30 +6,35 @@
 //MS(a = randomMatrix(i), interval);
 
 
-/*  Linea de cache 64 bytes (16 integer)
- *
- *
- *
- */
-
-int* llenarL1(){
-    int n = tamanioL1 * 1000 / sizeof(int);
-    int * a = randomArray(n);
-    return a;
+struct cacheInicial llenarL1(){
+    int n = tamanioL1 * kb / sizeof(int);
+    int * a = sequentialArray(n);
+    return cacheInicial(a, NULL, NULL);
 }
 
 
 
-int* llenarL2(){
-    int n = (tamanioL1 + tamanioL2) * 1000 / sizeof(int);
-    int * a = randomArray(n);
-    return a;
+struct cacheInicial llenarL2(){
+    int n = tamanioL2 * kb / sizeof(int);
+    int * a = sequentialArray(n);
+
+    n = tamanioL1 * kb / sizeof(int);
+    int * b = sequentialArray(n);
+
+    return cacheInicial(b, a, NULL);
 }
 
-int* llenarL3(){
-    int n = (tamanioL3 + tamanioL2 + tamanioL1)* 1000 / sizeof(int);
-    int * a = randomArray(n);
-    return a;
+struct cacheInicial llenarL3(){
+    int n = (tamanioL3)* kb / sizeof(int);
+    int * a = sequentialArray(n);
+
+    n = tamanioL2 * kb / sizeof(int);
+    int * b = sequentialArray(n);
+
+    n = tamanioL1 * kb / sizeof(int);
+    int * c = sequentialArray(n);
+
+    return cacheInicial(c, b, a);
 }
 
 int sumaArregloSecuencial(int* a, int n){
@@ -76,17 +81,18 @@ int main() {
         return EXIT_FAILURE;
     }*/
 
-
-    int n = (tamanioL1 * 1000 / sizeof(int)) / 2; // Divido por 2 para que no se pase de la cache
+    int n = ((tamanioL3) * kb / sizeof(int)) ; // Divido por 2 para que no se pase de la cacheInicial
     double intervals = 0;
     int cont = 0;
 
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < 100; i++) {
 
-        int* a = llenarL1();
+        struct cacheInicial c = llenarL3();
+        int * b = c.L3;
+        shuffleArray(b, sizeof(b)/sizeof(int));
         int suma;
 
-        NS(suma = sumaArregloSecuencial(a, n), interval)
+        NS(suma = sumaArregloRandom(b, n), interval)
 
         printf("Suma de los elementos del arreglo saltando de a 16: %d\n", suma);
 
@@ -98,9 +104,9 @@ int main() {
 
         intervals = interval/n + intervals;
 
-        free(a);
+        free(b);
     }
 
-    printf("Tiempo de ejecucion promedio de la suma secuencial de L1: %f ns\n", intervals/15);
+    printf("Tiempo de ejecucion promedio de la suma secuencial de L1: %f ns\n", intervals/100);
 
 }
