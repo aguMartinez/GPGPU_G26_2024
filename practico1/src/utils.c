@@ -8,10 +8,10 @@
 
 
 int ** randomMatrix(int n){
-    int **a = (unsigned int **) malloc(n * sizeof(int *));
+    int **a = (int **) malloc(n * sizeof(int *));
 
     for (int i = 0; i < n; i++) {
-        a[i] = (unsigned int *) malloc(n * sizeof(int));
+        a[i] = (int *) malloc(n * sizeof(int));
         for (int j = 0; j < n; j++) {
             a[i][j] = rand();
         }
@@ -20,7 +20,7 @@ int ** randomMatrix(int n){
 }
 
 int* randomArray(int n){
-    int* a = (unsigned int *) malloc(n * sizeof(int));
+    int* a = (int *) malloc(n * sizeof(int));
 
     for (int i = 0; i < n; i++) {
         a[i] = rand();
@@ -29,7 +29,7 @@ int* randomArray(int n){
 }
 
 int* sequentialArray(int n){
-    int* a = (unsigned int *) malloc(n * sizeof(int));
+    int* a = (int *) malloc(n * sizeof(int));
 
     for (int i = 0; i < n; i++) {
         a[i] = i;

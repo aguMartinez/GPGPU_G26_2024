@@ -39,7 +39,7 @@ int ejercicio2() {
 
     int* A = randomArray(m * p);
     int* B = randomArray(p * n);
-    int* C = (unsigned int *) malloc(m * n * sizeof(int));
+    int* C = (int *) malloc(m * n * sizeof(int));
 
     double elapNoReordenado = 0;
     NS(multiplicarMatricesNoReordenado(A, B, C, m, p, n), elapNoReordenado);
