@@ -71,24 +71,24 @@ void medirVelocidadL1(char tipoRecorrida) {
 
     printf("Iteracion,Tiempo (ns),Suma\n");
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 500; i++) {
 
-        if (tipoRecorrida == 'r') {
-            c = llenarL1('s');
-        } else {
-            c = llenarL1('n');
-        }
-
-        int * b = c.L1;
+        int * b;
 
         switch (tipoRecorrida) {
             case 'r':
+                c = llenarL1('s');
+                b = c.L1;
                 NS(suma = sumaArregloRandom(b, n), interval)
                 break;
             case 'h':
+                c = llenarL1('n');
+                b = c.L1;
                 NS(suma = sumaArregloSaltos(b, n, 16), interval)
                 break;
             case 's':
+                c = llenarL1('n');
+                b = c.L1;
                 NS(suma = sumaArregloSecuencial(b, n), interval)
                 break;
 
@@ -132,24 +132,24 @@ void medirVelocidadL2(char tipoRecorrida) {
 
         printf("Iteracion,Tiempo (ns),Suma\n");
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 500; i++) {
 
-            if (tipoRecorrida == 'r') {
-                c = llenarL2('s');
-            } else {
-                c = llenarL2('n');
-            }
-
-            int * b = c.L2;
+            int * b;
 
             switch (tipoRecorrida) {
                 case 'r':
+                    c = llenarL2('s');
+                    b = c.L2;
                     NS(suma = sumaArregloRandom(b, n), interval)
                     break;
                 case 'h':
+                    c = llenarL2('n');
+                    b = c.L2;
                     NS(suma = sumaArregloSaltos(b, n, 16), interval)
                     break;
                 case 's':
+                    c = llenarL2('n');
+                    b = c.L2;
                     NS(suma = sumaArregloSecuencial(b, n), interval)
                     break;
 
@@ -203,12 +203,18 @@ void medirVelocidadL3(char tipoRecorrida) {
 
         switch (tipoRecorrida) {
             case 'r':
+                c = llenarL3('s');
+                b = c.L3;
                 NS(suma = sumaArregloRandom(b, n), interval)
                 break;
             case 'h':
+                c = llenarL3('n');
+                b = c.L3;
                 NS(suma = sumaArregloSaltos(b, n, 16), interval)
                 break;
             case 's':
+                c = llenarL3('n');
+                b = c.L3;
                 NS(suma = sumaArregloSecuencial(b, n), interval)
                 break;
 
@@ -224,6 +230,7 @@ void medirVelocidadL3(char tipoRecorrida) {
 
 void ejercicio1() {
 
+    /*
     printf("==============================\n");
     printf("Medir velocidad de acceso a memoria cache\n");
     printf("==============================\n");
@@ -231,31 +238,32 @@ void ejercicio1() {
     printf("Velocidad de acceso a cache L1\n");
     printf("==============================\n");
     printf("| Secuencia");
+     */
     medirVelocidadL1('s');
-    printf("| Saltos");
+    //printf("| Saltos");
     medirVelocidadL1('h');
-    printf("| Aleatorio |\n");
+    //printf("| Aleatorio |\n");
     medirVelocidadL1('r');
-    printf("==============================\n");
+    /*printf("==============================\n");
 
     printf("Velocidad de acceso a cache L2\n");
     printf("==============================\n");
-    printf("| Secuencia");
+    printf("| Secuencia");*/
     medirVelocidadL2('s');
-    printf("| Saltos");
+    //printf("| Saltos");
     medirVelocidadL2('h');
-    printf("| Aleatorio |\n");
+    //printf("| Aleatorio |\n");
     medirVelocidadL2('r');
-    printf("==============================\n");
+    /*printf("==============================\n");
 
     printf("Velocidad de acceso a cache L3\n");
     printf("==============================\n");
-    printf("| Secuencia");
+    printf("| Secuencia");*/
     medirVelocidadL3('s');
-    printf("| Saltos");
+    //printf("| Saltos");
     medirVelocidadL3('h');
-    printf("| Aleatorio |\n");
+    //printf("| Aleatorio |\n");
     medirVelocidadL3('r');
-    printf("==============================\n");
+    //printf("==============================\n");
 
 }

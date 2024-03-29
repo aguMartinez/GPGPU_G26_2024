@@ -19,8 +19,14 @@ void liberarCache(struct cacheInicial c){
     free(c.L3);
 }
 
+/*
+arrayElements:
+    random: r
+    sequential: s
+*/
 struct cacheInicial llenarL1(char shuffle){
-    int n = tamanioL1 * kb / sizeof(int);
+    int n = (tamanioL1 * kb / sizeof(int))/2; //Ocupamos la mitad de la cache para que no haya misses
+
     int * a = sequentialArray(n);
 
     if (shuffle == 's') {
@@ -48,6 +54,7 @@ struct cacheInicial llenarL2(char shuffle){
 
 struct cacheInicial llenarL3(char shuffle){
     int n = (tamanioL3)* kb / sizeof(int);
+
     int * a = sequentialArray(n);
 
     if (shuffle == 's') {
