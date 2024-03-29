@@ -1,5 +1,8 @@
-#include "cacheUtils.h"
-#include "ejercicio1.c"
+#include "include/cacheUtils.h"
+#include "include/ejercicio1.h"
+#include "include/ejercicio2.h"
+#include <stdio.h>
+#include "include/cacheUtils.h"
 
 
 int main() {
@@ -15,7 +18,7 @@ int main() {
             ejercicio1();
             break;
         case '2':
-            //ejercicio2();
+            ejercicio2();
             break;
         case '3':
             //ejercicio3();
