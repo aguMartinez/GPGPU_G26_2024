@@ -64,14 +64,14 @@ void medirVelocidadL1(char tipoRecorrida) {
             break;
     }
 
-    int n = ((tamanioL1) * kb / sizeof(int)) ;
+    int n = ((tamanioL1) * kb / sizeof(int))/2 ;
     struct cacheInicial c;
     int suma;
     double interval = 0;
 
     printf("Iteracion,Tiempo (ns),Suma\n");
 
-    for (int i = 0; i < 500; i++) {
+    for (int i = 0; i < 1000; i++) {
 
         int * b;
 
@@ -132,7 +132,7 @@ void medirVelocidadL2(char tipoRecorrida) {
 
         printf("Iteracion,Tiempo (ns),Suma\n");
 
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 1000; i++) {
 
             int * b;
 
@@ -191,15 +191,9 @@ void medirVelocidadL3(char tipoRecorrida) {
 
     printf("Iteracion,Tiempo (ns),Suma\n");
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 1000; i++) {
 
-        if (tipoRecorrida == 'r') {
-            c = llenarL3('s');
-        } else {
-            c = llenarL3('n');
-        }
-
-        int * b = c.L3;
+        int * b;
 
         switch (tipoRecorrida) {
             case 'r':
