@@ -4,7 +4,7 @@
 #include <malloc.h>
 
 
-struct cacheInicial cacheInicial(int *pInt, void *pVoid, void *pVoid1) {
+struct cacheInicial cacheInicial(int* pInt, int* pVoid, int* pVoid1) {
     struct cacheInicial result;
     result.L1 = pInt;
     result.L2 = pVoid;

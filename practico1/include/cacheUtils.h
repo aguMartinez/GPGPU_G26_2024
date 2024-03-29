@@ -20,5 +20,5 @@ struct cacheInicial llenarL2(char shuffle);
 
 struct cacheInicial llenarL3(char shuffle);
 
-struct cacheInicial cacheInicial(int *pInt, void *pVoid, void *pVoid1);
+struct cacheInicial cacheInicial(int* pInt, int* pVoid, int* pVoid1);
 
