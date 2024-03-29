@@ -1,5 +1,5 @@
-#include "utils.h"
-#include "cacheUtils.h"
+#include "../include/utils.h"
+#include "../include/cacheUtils.h"
 #include <stdio.h>
 #include <malloc.h>
 

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
-#include "utils.h"
-#include "cacheUtils.h"
+#include "../include/utils.h"
+#include "../include/cacheUtils.h"
 
 int sumaArregloSecuencial(int* a, int n){
 

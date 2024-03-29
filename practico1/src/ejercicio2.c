@@ -2,7 +2,7 @@
 // Created by Valen on 26/3/2024.
 //
 
-#include "utils.h"
+#include "../include/utils.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -39,7 +39,7 @@ int ejercicio2() {
 
     int* A = randomArray(m * p);
     int* B = randomArray(p * n);
-    int* C = malloc(m * n * sizeof(int));
+    int* C = (unsigned int *) malloc(m * n * sizeof(int));
 
     double elapNoReordenado = 0;
     NS(multiplicarMatricesNoReordenado(A, B, C, m, p, n), elapNoReordenado);
