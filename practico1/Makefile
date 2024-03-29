@@ -1,5 +1,5 @@
 #Makefile del Práctico 1 | GPGPU 2024 | FING | Udelar
-all: principal
+all: main
 
 # Objetivos que no son archivos.
 .PHONY: all clean rebuild
@@ -11,9 +11,8 @@ CDIR  = src
 ODIR    = obj
 
 MODULOS = utils cacheUtils ejercicio1 ejercicio2 
+PUNTOH = utils cacheUtils ejercicio1 ejercicio2
 
-
-PUNTOH = utils utilscache ejercicio1 ejercicio2
 # lista de archivos, con directorio y extensión
 HS   = $(PUNTOH:%=$(HDIR)/%.h)
 CPPS = $(MODULOS:%=$(CDIR)/%.c)
@@ -27,7 +26,7 @@ LIB=prct1GPGPU.a
 # compilador
 CC = g++
 # opciones de compilación
-CCFLAGS = -O03 -Wall -g -I$(HDIR)
+CCFLAGS = -O0 -Wall -g -I$(HDIR)
 
 
 $(ODIR)/$(PRINCIPAL).o:$(PRINCIPAL).c
