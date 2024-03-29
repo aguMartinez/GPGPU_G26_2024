@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
 #include "utils.h"
 #include "cacheUtils.h"
@@ -84,7 +83,7 @@ void medirVelocidadL1(char tipoRecorrida) {
 
         switch (tipoRecorrida) {
             case 'r':
-                NS(suma = sumaArregloSecuencial(b, n), interval)
+                NS(suma = sumaArregloRandom(b, n), interval)
                 break;
             case 'h':
                 NS(suma = sumaArregloSaltos(b, n, 16), interval)
@@ -145,7 +144,7 @@ void medirVelocidadL2(char tipoRecorrida) {
 
             switch (tipoRecorrida) {
                 case 'r':
-                    NS(suma = sumaArregloSecuencial(b, n), interval)
+                    NS(suma = sumaArregloRandom(b, n), interval)
                     break;
                 case 'h':
                     NS(suma = sumaArregloSaltos(b, n, 16), interval)
@@ -204,7 +203,7 @@ void medirVelocidadL3(char tipoRecorrida) {
 
         switch (tipoRecorrida) {
             case 'r':
-                NS(suma = sumaArregloSecuencial(b, n), interval)
+                NS(suma = sumaArregloRandom(b, n), interval)
                 break;
             case 'h':
                 NS(suma = sumaArregloSaltos(b, n, 16), interval)
@@ -231,25 +230,31 @@ void ejercicio1() {
 
     printf("Velocidad de acceso a cache L1\n");
     printf("==============================\n");
-    printf("| Secuencia | Saltos | Aleatorio |\n");
+    printf("| Secuencia");
     medirVelocidadL1('s');
+    printf("| Saltos");
     medirVelocidadL1('h');
+    printf("| Aleatorio |\n");
     medirVelocidadL1('r');
     printf("==============================\n");
 
     printf("Velocidad de acceso a cache L2\n");
     printf("==============================\n");
-    printf("| Secuencia | Saltos | Aleatorio |\n");
+    printf("| Secuencia");
     medirVelocidadL2('s');
+    printf("| Saltos");
     medirVelocidadL2('h');
+    printf("| Aleatorio |\n");
     medirVelocidadL2('r');
     printf("==============================\n");
 
     printf("Velocidad de acceso a cache L3\n");
     printf("==============================\n");
-    printf("| Secuencia | Saltos | Aleatorio |\n");
+    printf("| Secuencia");
     medirVelocidadL3('s');
+    printf("| Saltos");
     medirVelocidadL3('h');
+    printf("| Aleatorio |\n");
     medirVelocidadL3('r');
     printf("==============================\n");
 
