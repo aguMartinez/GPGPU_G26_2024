@@ -1,6 +1,7 @@
 #include "../include/utils.h"
 #include "../include/cacheUtils.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <malloc.h>
 
 
@@ -36,8 +37,6 @@ struct cacheInicial llenarL1(char shuffle){
     return cacheInicial(a, NULL, NULL);
 }
 
-
-
 struct cacheInicial llenarL2(char shuffle){
     int n = tamanioL2 * kb / sizeof(int);
     int * a = sequentialArray(n);
@@ -52,14 +51,11 @@ struct cacheInicial llenarL2(char shuffle){
     return cacheInicial(b, a, NULL);
 }
 
-struct cacheInicial llenarL3(char shuffle, char aligne){
+struct cacheInicial llenarL3(char shuffle){
     int n = (tamanioL3)* kb / sizeof(int);
 
     int * a;
-    if (aligne == 'a')
-        a = sequentialArray(n);
-    else
-        a = sequentialArray(n);
+    a = sequentialArray(n);
 
     if (shuffle == 's') {
         shuffleArray(a, 'n');
@@ -70,7 +66,6 @@ struct cacheInicial llenarL3(char shuffle, char aligne){
 
     n = tamanioL1 * kb / sizeof(int);
     int * c = sequentialArray(n);
-ecko
     return cacheInicial(c, b, a);
 }
 

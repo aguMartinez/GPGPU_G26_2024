@@ -195,17 +195,17 @@ void medirVelocidadL3(char tipoRecorrida) {
 
         switch (tipoRecorrida) {
             case 'r':
-                c = llenarL3('s', 'a');
+                c = llenarL3('s');
                 b = c.L3;
                 NS(suma = sumaArregloRandom(b, n), interval)
                 break;
             case 'h':
-                c = llenarL3('n', 'a');
+                c = llenarL3('n');
                 b = c.L3;
                 NS(suma = sumaArregloSaltos(b, n, 16), interval)
                 break;
             case 's':
-                c = llenarL3('n', 'a');
+                c = llenarL3('n');
                 b = c.L3;
                 NS(suma = sumaArregloSecuencial(b, n), interval)
                 break;
@@ -284,4 +284,5 @@ void ejercicio1() {
     medirVelocidadL3('s');
     medirVelocidadL3('h');
     medirVelocidadL3('r');
+    printf("Ejercicio 1 done \n");
 }

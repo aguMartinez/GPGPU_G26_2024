@@ -55,5 +55,6 @@ int ejercicio2() {
     free(B);
     free(C);
 
+    printf("Ejercicio 2 done \n");
     return 0;
 }

@@ -21,7 +21,9 @@ int main() {
             ejercicio2();
             break;
         case '3':
-            //ejercicio3();
+            ejercicio1();
+            ejercicio2();
+            printf
             break;
     }
     return 1;

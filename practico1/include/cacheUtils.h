@@ -18,7 +18,7 @@ struct cacheInicial llenarL1(char shuffle);
 
 struct cacheInicial llenarL2(char shuffle);
 
-struct cacheInicial llenarL3(char shuffle, char aligne);
+struct cacheInicial llenarL3(char shuffle);
 
 struct cacheInicial cacheInicial(int* pInt, int* pVoid, int* pVoid1);
 

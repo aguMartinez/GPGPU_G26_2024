@@ -68,14 +68,14 @@ void setConsoleAsStdOutput(){
 #endif
 }
 
-//void setCPU{
-//    DWORD_PTR processAffinityMask = 1;
-//
-//    HANDLE hProcess = GetCurrentProcess();
-//
-//    if (SetProcessAffinityMask(hProcess, processAffinityMask) == 0) {
-//        printf("Error al establecer la máscara de afinidad del proceso. Codigo de error: %lu\n", GetLastError());
-//    } else {
-//        printf("La mascara de afinidad del proceso se establecio correctamente.\n");
-//    }
-//}
+void setCPU{
+    DWORD_PTR processAffinityMask = 1;
+
+    HANDLE hProcess = GetCurrentProcess();
+
+    if (SetProcessAffinityMask(hProcess, processAffinityMask) == 0) {
+        printf("Error al establecer la máscara de afinidad del proceso. Codigo de error: %lu\n", GetLastError());
+    } else {
+        printf("La mascara de afinidad del proceso se establecio correctamente.\n");
+    }
+}
