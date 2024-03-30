@@ -6,10 +6,13 @@
 #define PRACTICO1_UTILS_H
 
 #define kb 1000 //1 kb = 1000b
-#define tamanioL1 80 //kb
-#define tamanioL2 1280 //kb
+//#define tamanioL1 80 //kb
+//#define tamanioL2 1280 //kb
 #define tamanioL3 25000 //kb
 
+// Tamanio de las caches de los eCore
+#define tamanioL1 32 //kb
+#define tamanioL2 2000 //kb
 #define MS(f,elap)                                                                                           \
         double elap=0;                                                                                       \
         {                                                                                                    \

@@ -52,13 +52,17 @@ struct cacheInicial llenarL2(char shuffle){
     return cacheInicial(b, a, NULL);
 }
 
-struct cacheInicial llenarL3(char shuffle){
+struct cacheInicial llenarL3(char shuffle, char aligne){
     int n = (tamanioL3)* kb / sizeof(int);
 
-    int * a = sequentialArray(n);
+    int * a;
+    if (aligne == 'a')
+        a = sequentialArray(n);
+    else
+        a = sequentialArray(n);
 
     if (shuffle == 's') {
-        shuffleArray(a, n);
+        shuffleArray(a, 'n');
     }
 
     n = tamanioL2 * kb / sizeof(int);

@@ -26,7 +26,7 @@ LIB=prct1GPGPU.a
 # compilador
 CC = g++
 # opciones de compilación
-CCFLAGS = -O0 -Wall -g -I$(HDIR)
+CCFLAGS = -O0 -Wall -g -I$(HDIR) -std=c11
 
 
 $(ODIR)/$(PRINCIPAL).o:$(PRINCIPAL).c
