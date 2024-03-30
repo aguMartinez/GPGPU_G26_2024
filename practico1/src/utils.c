@@ -68,6 +68,7 @@ void setConsoleAsStdOutput(){
 #endif
 }
 
+/*
 void setCPU{
     DWORD_PTR processAffinityMask = 1;
 
@@ -79,3 +80,4 @@ void setCPU{
         printf("La mascara de afinidad del proceso se establecio correctamente.\n");
     }
 }
+ */

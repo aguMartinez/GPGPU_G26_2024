@@ -2,7 +2,6 @@
 #include "../include/cacheUtils.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
 
 
 struct cacheInicial cacheInicial(int* pInt, int* pVoid, int* pVoid1) {
@@ -58,7 +57,7 @@ struct cacheInicial llenarL3(char shuffle){
     a = sequentialArray(n);
 
     if (shuffle == 's') {
-        shuffleArray(a, 'n');
+        shuffleArray(a, n);
     }
 
     n = tamanioL2 * kb / sizeof(int);

@@ -23,7 +23,6 @@ int main() {
         case '3':
             ejercicio1();
             ejercicio2();
-            printf
             break;
     }
     return 1;
