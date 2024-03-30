@@ -70,7 +70,7 @@ struct cacheInicial llenarL3(char shuffle, char aligne){
 
     n = tamanioL1 * kb / sizeof(int);
     int * c = sequentialArray(n);
-
+ecko
     return cacheInicial(c, b, a);
 }
 
