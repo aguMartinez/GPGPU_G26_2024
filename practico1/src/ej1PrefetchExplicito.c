@@ -49,22 +49,26 @@ int busquedaBinariaPrefetch(int* a, int cantElems, int clave){
 
 void ej1PrefetchExplicito(){
 
-    int size = 2000*MB; //Arreglo de 2GB
+    int size = 5000*MB; //Arreglo de 5GB
 
     int elementos = size/sizeof(int);
 
     int* a = sequentialArray(elementos);
+    int* b = sequentialArray(elementos);
     int clave = rand() % elementos;
     int res;
 
     double tiempoSinPrefetch = 0;
     double tiempoPrefetch = 0;
 
-    MS(res = busquedaBinariaSinPrefetch(a, elementos, clave), tiempoSinPrefetch)
-    MS(res = busquedaBinariaPrefetch(a, elementos, clave), tiempoPrefetch)
+    NS(res = busquedaBinariaSinPrefetch(a, elementos, clave), tiempoSinPrefetch)
+    NS(res = busquedaBinariaPrefetch(b, elementos, clave), tiempoPrefetch)
+
+    free(a);
+    free(b);
 
     printf("Busco: %d\n",clave);
     printf("Encontrado: %d\n",res);
-    printf("Tiempo sin prefetch: %d ms\n", tiempoSinPrefetch);
-    printf("Tiempo con prefetch: %d ms\n", tiempoPrefetch);
+    printf("Tiempo sin prefetch: %f ns\n", tiempoSinPrefetch);
+    printf("Tiempo con prefetch: %f ns\n", tiempoPrefetch);
 }
