@@ -2,9 +2,14 @@
 // Created by agu on 31/3/2024.
 //
 
-#include "../include/utils.h"
+#include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-void busquedaBinariaSinPrefetch(int* a, int cantElems, int clave){
+#include "../include/utils.h"
+#include "../include/cacheUtils.h"
+
+int busquedaBinariaSinPrefetch(int* a, int cantElems, int clave){
     int bajo = 0;
     int alto = cantElems-1;
     int medio;
@@ -13,15 +18,15 @@ void busquedaBinariaSinPrefetch(int* a, int cantElems, int clave){
         medio = (alto-bajo)/2;
         if(a[medio] < clave)
             bajo = medio+1;
-        else if a[medio] == clave
+        else if (a[medio] == clave)
             return medio;
         else
-            alto = mid-1;
+            alto = medio-1;
     }
     return -1;
 }
 
-void busquedaBinariaPrefetch(int* a, int cantElems, int clave){
+int busquedaBinariaPrefetch(int* a, int cantElems, int clave){
     int bajo = 0,
     alto = cantElems-1,
     medio;
@@ -33,19 +38,31 @@ void busquedaBinariaPrefetch(int* a, int cantElems, int clave){
 
         if(a[medio] < clave)
             bajo = medio+1;
-        else if a[medio] == clave
-        return medio;
+        else if (a[medio] == clave)
+            return medio;
         else
-        alto = mid-1;
+        alto = medio-1;
     }
 
     return -1;
 }
 
 void ej1PrefetchExplicito(){
-    int* a = sequentialArray();
+    int size = 1*MB; //Arreglo de 2GB
+
+    int elementos = size/sizeof(int);
+
+    int* a = sequentialArray(size/elementos);
+    int clave = rand() % elementos;
     int res;
 
-    MS(res = busquedaBinariaSinPrefetch(a);)
-    MS(res = busquedaBinariaPrefetch(a);)
+    double tiempoSinPrefetch = 0;
+    double tiempoPrefetch = 0;
+
+    NS(res = busquedaBinariaSinPrefetch(a, elementos, clave), tiempoSinPrefetch)
+    NS(res = busquedaBinariaPrefetch(a, elementos, clave), tiempoPrefetch)
+
+    printf("Encontrado: %d",res);
+    printf("Tiempo sin prefetch: %d", tiempoSinPrefetch);
+    printf("Tiempo con prefetch: %d", tiempoPrefetch);
 }

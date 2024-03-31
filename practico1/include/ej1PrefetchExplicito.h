@@ -1,13 +1,13 @@
 //
-// Created by usuario on 31/3/2024.
+// Created by agu on 31/3/2024.
 //
 
 #ifndef PRACTICO1_EJ1PREFETCHEXPLICITO_H
 #define PRACTICO1_EJ1PREFETCHEXPLICITO_H
 
-void busquedaBinariaSinPrefetch(int* a, int cantElems, int clave);
+int busquedaBinariaSinPrefetch(int* a, int cantElems, int clave);
 
-void busquedaBinariaPrefetch(int* a, int cantElems, int clave);
+int busquedaBinariaPrefetch(int* a, int cantElems, int clave);
 
 void ej1PrefetchExplicito();
 
