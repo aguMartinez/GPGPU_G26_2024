@@ -2,13 +2,17 @@
 #include "include/ejercicio1.h"
 #include "include/ej1PrefetchExplicito.h"
 #include "include/ejercicio2.h"
-#include <stdio.h>
 #include "include/cacheUtils.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 int main() {
 
     char numEj, parteEj;
+    srand(time(NULL));
 
     printf("Ingrese el numero de ejercicio a ejecutar: ");
     scanf("%c",&numEj);

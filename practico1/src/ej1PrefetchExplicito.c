@@ -15,7 +15,7 @@ int busquedaBinariaSinPrefetch(int* a, int cantElems, int clave){
     int medio;
 
     while(bajo <= alto){
-        medio = (alto-bajo)/2;
+        medio = (alto+bajo)/2;
         if(a[medio] < clave)
             bajo = medio+1;
         else if (a[medio] == clave)
@@ -32,7 +32,7 @@ int busquedaBinariaPrefetch(int* a, int cantElems, int clave){
     medio;
 
     while(bajo <= alto){
-        medio = (alto-bajo)/2;
+        medio = (alto+bajo)/2;
         __builtin_prefetch (&a[(medio + 1 + alto)/2], 0, 1);
         __builtin_prefetch (&a[(bajo + medio - 1)/2], 0, 1);
 
@@ -48,21 +48,23 @@ int busquedaBinariaPrefetch(int* a, int cantElems, int clave){
 }
 
 void ej1PrefetchExplicito(){
-    int size = 1*MB; //Arreglo de 2GB
+
+    int size = 2000*MB; //Arreglo de 2GB
 
     int elementos = size/sizeof(int);
 
-    int* a = sequentialArray(size/elementos);
+    int* a = sequentialArray(elementos);
     int clave = rand() % elementos;
     int res;
 
     double tiempoSinPrefetch = 0;
     double tiempoPrefetch = 0;
 
-    NS(res = busquedaBinariaSinPrefetch(a, elementos, clave), tiempoSinPrefetch)
-    NS(res = busquedaBinariaPrefetch(a, elementos, clave), tiempoPrefetch)
+    MS(res = busquedaBinariaSinPrefetch(a, elementos, clave), tiempoSinPrefetch)
+    MS(res = busquedaBinariaPrefetch(a, elementos, clave), tiempoPrefetch)
 
-    printf("Encontrado: %d",res);
-    printf("Tiempo sin prefetch: %d", tiempoSinPrefetch);
-    printf("Tiempo con prefetch: %d", tiempoPrefetch);
+    printf("Busco: %d\n",clave);
+    printf("Encontrado: %d\n",res);
+    printf("Tiempo sin prefetch: %d ms\n", tiempoSinPrefetch);
+    printf("Tiempo con prefetch: %d ms\n", tiempoPrefetch);
 }
