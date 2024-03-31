@@ -5,4 +5,6 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(practico1 main.c
         utils.c
-        utils.h)
+        utils.h
+        src/ej1PrefetchExplicito.c
+        include/ej1PrefetchExplicito.h)
