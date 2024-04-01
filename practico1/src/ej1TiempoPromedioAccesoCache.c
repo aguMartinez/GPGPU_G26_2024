@@ -286,4 +286,5 @@ void ejercicio1() {
     medirVelocidadL3('r');
 
     printf("Ejercicio 1 done \n");
+    printf("Los resultados se guardaron en archivos .csv en la carpeta del ejecutable \n");
 }
