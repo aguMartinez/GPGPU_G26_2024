@@ -43,7 +43,6 @@
         }
 
 
-
 //Utilidades de Matrices
 
 int** randomMatrix(int n);
@@ -59,6 +58,7 @@ void shuffleArray(int* array, int n);
 int* sequentialArray(int n);
 
 void setConsoleAsStdOutput();
+void set_cpu_affinity(int cpu_id);
 
 //void setCPU();
 

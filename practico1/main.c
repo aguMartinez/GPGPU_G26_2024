@@ -3,13 +3,14 @@
 #include "include/ej1PrefetchExplicito.h"
 #include "include/ejercicio2.h"
 #include "include/cacheUtils.h"
+#include "include/utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-
 int main() {
+    set_cpu_affinity(0);
 
     char numEj, parteEj;
     srand(time(NULL));

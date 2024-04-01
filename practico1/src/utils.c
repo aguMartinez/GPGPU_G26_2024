@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../include/utils.h"
-
+#include <sched.h>
+#include <Windows.h>
 
 int ** randomMatrix(int n){
     int **a = (int **) _aligned_malloc(n * sizeof(int *), 64);
@@ -68,16 +69,21 @@ void setConsoleAsStdOutput(){
 #endif
 }
 
-/*
-void setCPU{
-    DWORD_PTR processAffinityMask = 1;
+void set_cpu_affinity(int cpu_id) {
+#ifdef _WIN32
+    DWORD_PTR mask = 1 << cpu_id;
+    HANDLE process = GetCurrentProcess();
 
-    HANDLE hProcess = GetCurrentProcess();
-
-    if (SetProcessAffinityMask(hProcess, processAffinityMask) == 0) {
-        printf("Error al establecer la máscara de afinidad del proceso. Codigo de error: %lu\n", GetLastError());
-    } else {
-        printf("La mascara de afinidad del proceso se establecio correctamente.\n");
+    if (!SetProcessAffinityMask(process, mask)) {
+        fprintf(stderr, "Error al establecer la afinidad de CPU: %lu\n", GetLastError());
     }
+#else
+    cpu_set_t mask;
+    CPU_ZERO(&mask);
+    CPU_SET(cpu_id, &mask);
+
+    if (sched_setaffinity(0, sizeof(mask), &mask) == -1) {
+        perror("sched_setaffinity failed");
+    }
+#endif
 }
- */
