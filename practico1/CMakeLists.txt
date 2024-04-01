@@ -15,4 +15,6 @@ add_executable(practico1 main.c
         src/ejercicio1.c
         src/ejercicio2.c
         src/utils.c
+        src/ej1AccesoDesalineado.c
+        include/ej1AccesoDesalineado.h
 )

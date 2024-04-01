@@ -1,4 +1,4 @@
-#Makefile del Práctico 1 | GPGPU 2024 | FING | Udelar
+#Makefile del Práctico 1 | Grupo 26 | GPGPU 2024 | FING | Udelar
 all: main
 
 # Objetivos que no son archivos.
