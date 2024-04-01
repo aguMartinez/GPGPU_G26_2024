@@ -49,7 +49,7 @@ int busquedaBinariaPrefetch(int* a, int cantElems, int clave){
 
 void ej1PrefetchExplicito(){
 
-    int size = 2000*MB; //Arreglo de 5GB
+    int size = 2000*MB; //Arreglo de 2GB
 
     int elementos = size/sizeof(int);
 
