@@ -1,7 +1,7 @@
 #include "include/cacheUtils.h"
-#include "include/ejercicio1.h"
+#include "include/ej1TiempoPromedioAccesoCache.h"
 #include "include/ej1PrefetchExplicito.h"
-#include "include/ejercicio2.h"
+#include "include/ej2ReordenamientoYBlocking.h"
 #include "include/cacheUtils.h"
 #include "include/utils.h"
 
