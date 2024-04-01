@@ -14,7 +14,6 @@ int main() {
 
     switch(numEj){
         case '1':
-           // printf("Ejercicio 1\n");
             ejercicio1();
             break;
         case '2':

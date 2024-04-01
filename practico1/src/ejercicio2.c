@@ -43,13 +43,19 @@ int ejercicio2() {
 
     double elapNoReordenado = 0;
     NS(multiplicarMatricesNoReordenado(A, B, C, m, p, n), elapNoReordenado);
-    double gflopsNoReordenado = (2.0 * m * p * n) / (elapNoReordenado) * 1e-9;
+    double gflopsNoReordenado = (2.0 * m * p * n) / (elapNoReordenado * 1e-9);
     printf("Tiempo multiplicarMatricesNoReordenado: %f ns, GFLOPS: %f\n", elapNoReordenado, gflopsNoReordenado);
 
     double elapReordenado = 0;
     NS(multiplicarMatricesReordenado(A, B, C, m, p, n), elapReordenado);
-    double gflopsReordenado = (2.0 * m * p * n) / (elapReordenado) * 1e-9;
+    double gflopsReordenado = (2.0 * m * p * n) / (elapReordenado * 1e-9);
     printf("Tiempo multiplicarMatricesReordenado: %f ns, GFLOPS: %f\n", elapReordenado, gflopsReordenado);
+
+    if (gflopsNoReordenado > gflopsReordenado) {
+        printf("La version no reordenada es mas rapida\n");
+    } else {
+        printf("La version reordenada es mas rapida\n");
+    }
 
     free(A);
     free(B);
