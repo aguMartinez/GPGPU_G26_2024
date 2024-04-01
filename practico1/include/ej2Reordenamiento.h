@@ -7,4 +7,4 @@
 
 #endif //PRACTICO1_EJERCICIO2_H
 
-void ejercicio2();
+void ej2Reordenamiento();

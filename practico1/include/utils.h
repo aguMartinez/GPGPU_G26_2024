@@ -47,6 +47,8 @@
 
 int** randomMatrix(int n);
 
+void printMatrix(int** A, int n);
+
 void freeMatrix(int ** a, int n);
 
 //Utilidades de arreglos

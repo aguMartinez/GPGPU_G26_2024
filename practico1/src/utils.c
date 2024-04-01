@@ -9,15 +9,24 @@
 #include <Windows.h>
 
 int ** randomMatrix(int n){
-    int **a = (int **) _aligned_malloc(n * sizeof(int *), 64);
+    int **a = (int **) malloc(n * sizeof(int*));
 
     for (int i = 0; i < n; i++) {
-        a[i] = (int *) _aligned_malloc(n * sizeof(int), 64);
+        a[i] = (int *) malloc(n * sizeof(int));
         for (int j = 0; j < n; j++) {
             a[i][j] = rand();
         }
     }
     return a;
+}
+
+void printMatrix(int** A, int n){
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", A[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 int* randomArray(int n){
