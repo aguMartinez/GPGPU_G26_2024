@@ -284,5 +284,6 @@ void ejercicio1() {
     medirVelocidadL3('s');
     medirVelocidadL3('h');
     medirVelocidadL3('r');
+
     printf("Ejercicio 1 done \n");
 }

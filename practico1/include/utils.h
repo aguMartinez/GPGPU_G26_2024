@@ -5,16 +5,26 @@
 #ifndef PRACTICO1_UTILS_H
 #define PRACTICO1_UTILS_H
 
-#define kb 1000 //1 kb = 1000b
-//#define tamanioL1 80 //kb
-//#define tamanioL2 1280 //kb
+//1 kb = 1000b
+#define kb 1000
+
+//1 mb = 1000b
+#define MB 1000000
+
+//PCores
+#define tamanioL1P 80 //kb (p-core)
+#define tamanioL2P 1280 //kb (p-core)
+
+//ECores
+
+#define tamanioL1 32 //kb (e-core)
+#define tamanioL2 2000 //kb (e-core)
+
+//Cache L3 Shared
 #define tamanioL3 25000 //kb
 
-// Tamanio de las caches de los eCore
-#define tamanioL1 32 //kb
-#define tamanioL2 2000 //kb
+
 #define MS(f,elap)                                                                                           \
-        double elap=0;                                                                                       \
         {                                                                                                    \
         struct timespec t_ini,t_fin;                                                                         \
             clock_gettime(CLOCK_MONOTONIC, &t_ini);                                                          \
@@ -29,7 +39,7 @@
             clock_gettime(CLOCK_MONOTONIC, &t_ini);                                                          \
             f;                                                                                               \
             clock_gettime(CLOCK_MONOTONIC, &t_fin);                                                          \
-            elap = 1000000000 * (t_fin.tv_sec - t_ini.tv_sec) + (t_fin.tv_nsec - t_ini.tv_nsec);         \
+            elap = 1000000000 * (t_fin.tv_sec - t_ini.tv_sec) + (t_fin.tv_nsec - t_ini.tv_nsec);             \
         }
 
 
