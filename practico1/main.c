@@ -1,4 +1,9 @@
+
+//Utilidades
+#include "include/utils.h"
 #include "include/cacheUtils.h"
+
+//Ejercicio 1:
 #include "include/ej1TiempoPromedioAccesoCache.h"
 #include "include/ej1PrefetchExplicito.h"
 #include "include/ej2ReordenamientoYBlocking.h"
@@ -6,6 +11,11 @@
 #include "include/cacheUtils.h"
 #include "include/utils.h"
 
+//Ejercicio 2:
+#include "include/ej2Reordenamiento.h"
+#include "include/ej2Blocking.h"
+
+//Bibliotecas estandar:
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -30,12 +40,19 @@ int main() {
             if(parteEj=='c')
                     ej1AccesoDesalineado();
             break;
+
         case '2':
-            ejercicio2();
+            printf("Ingrese parte de ejercicio a ejecutar: ");
+            scanf(" %c",&parteEj);
+            if(parteEj=='a')
+                ej2Reordenamiento();
+            if(parteEj=='b')
+                ej2Blocking();
+            //if(parteEj=='c')
             break;
         case '3':
             ejercicio1();
-            ejercicio2();
+            ej2Reordenamiento();
             break;
     }
     return 1;
