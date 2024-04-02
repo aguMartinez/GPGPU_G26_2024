@@ -17,5 +17,7 @@ add_executable(practico1 main.c
         src/ej2Reordenamiento.c
         src/ej2Blocking.c
         src/utils.c
+        src/ej1AccesoDesalineado.c
+        include/ej1AccesoDesalineado.h
         include/ej2Blocking.h
 )
