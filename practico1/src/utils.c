@@ -8,16 +8,38 @@
 #include <sched.h>
 #include <Windows.h>
 
-int ** randomMatrix(int n){
-    int **a = (int **) malloc(n * sizeof(int*));
+/* UTILIDADES DE MATRICES */
+
+int** initializeMatrix(int n){
+    int** A = (int **) malloc(n * sizeof(int*));
+    for (int i = 0; i < n; i++)
+        A[i] = (int *) malloc(n * sizeof(int));
+    return A;
+}
+
+int** sequentialMatrix(int n){
+    int **A = (int **) malloc(n * sizeof(int*));
 
     for (int i = 0; i < n; i++) {
-        a[i] = (int *) malloc(n * sizeof(int));
+        A[i] = (int *) malloc(n * sizeof(int));
         for (int j = 0; j < n; j++) {
-            a[i][j] = rand();
+            A[i][j] = i*n + j;
         }
     }
-    return a;
+    return A;
+
+}
+
+int ** randomMatrix(int n){
+    int **A = (int **) malloc(n * sizeof(int*));
+
+    for (int i = 0; i < n; i++) {
+        A[i] = (int *) malloc(n * sizeof(int));
+        for (int j = 0; j < n; j++) {
+            A[i][j] = rand();
+        }
+    }
+    return A;
 }
 
 void printMatrix(int** A, int n){
@@ -28,6 +50,16 @@ void printMatrix(int** A, int n){
         printf("\n");
     }
 }
+
+int** cloneMatrix(int** A, int n){
+    int** B = initializeMatrix(n);
+    for(int i = 0; i < n;i++)
+        for (int j = 0; j < n; j++)
+            B[i][j] = A[i][j];
+    return B;
+}
+
+/* UTILIDADES DE ARREGLOS */
 
 int* randomArray(int n){
 
@@ -64,6 +96,7 @@ void shuffleArray(int* array, int n) {
         array[j] = temp;
     }
 }
+
 
 void setConsoleAsStdOutput(){
 #ifdef _WIN32

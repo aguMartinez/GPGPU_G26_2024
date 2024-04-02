@@ -2,10 +2,12 @@
 // Created by amartinez on 1/4/2024.
 //
 
-#include "../include/utils.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+
+#include "../include/utils.h"
+#include "../include/ej2Reordenamiento.h"
 
 
 /* Utiliza array bidimensional para simplificar la escritura de indices
@@ -48,15 +50,29 @@ int ej2Blocking(int MAX_SIZE){
 
     for (int n=2;n<=tope;n=n*2){
 
+        //Se realiza la multiplicación reordenada
+        int** AR = sequentialMatrix(n);
+        int** BR = sequentialMatrix(n);
+        int** CR = initializeMatrix(n);
+
+        double intervalR = 0;
+        NS(multiplicarMatricesReordenado(AR, BR, CR, n,n,n), intervalR)
+
+        printf("%d,0,%f\n",n,intervalR/1e+6);
+
+        freeMatrix(AR,n);
+        freeMatrix(BR,n);
+        freeMatrix(CR,n);
+
         for(int b = 2; b<=n; b=b*2){
-            int** A = randomMatrix(n);
-            int** B = randomMatrix(n);
-            int** C = randomMatrix(n); //Se inicializa con basura (va a ser sustituido)
+            int** A = sequentialMatrix(n);
+            int** B = sequentialMatrix(n);
+            int** C = initializeMatrix(n); //Se inicializa con basura (va a ser sustituido)
 
-            double interval = 0;
-            NS(multiplicarMatricesBlocking(A, B, C, n, b), interval)
+            double intervalB = 0;
+            NS(multiplicarMatricesBlocking(A, B, C, n, b), intervalB)
 
-            printf("%d,%d,%f\n",n,b,interval/1e+6);
+            printf("%d,%d,%f\n",n,b,intervalB/1e+6);
             freeMatrix(A,n);
             freeMatrix(B,n);
             freeMatrix(C,n);
@@ -64,6 +80,6 @@ int ej2Blocking(int MAX_SIZE){
 
     }
     setConsoleAsStdOutput();
-    printf("Finalizado! Resultados guardados en output_ej2_blocking.csv\n");
+    printf("Finalizado! Resultados guardados en:\noutput_ej2_blocking.csv\n");
     return 1;
 }
