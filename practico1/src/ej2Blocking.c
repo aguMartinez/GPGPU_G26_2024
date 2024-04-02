@@ -51,18 +51,18 @@ int ej2Blocking(int MAX_SIZE){
     for (int n=2;n<=tope;n=n*2){
 
         //Se realiza la multiplicación reordenada
-        int** AR = sequentialMatrix(n);
-        int** BR = sequentialMatrix(n);
-        int** CR = initializeMatrix(n);
+        int* AR = sequentialArray(n*n);
+        int* BR = sequentialArray(n*n);
+        int* CR = (int *) malloc(n * n * sizeof(int));
 
         double intervalR = 0;
         NS(multiplicarMatricesReordenado(AR, BR, CR, n,n,n), intervalR)
 
         printf("%d,0,%f\n",n,intervalR/1e+6);
 
-        freeMatrix(AR,n);
-        freeMatrix(BR,n);
-        freeMatrix(CR,n);
+        free(AR);
+        free(BR);
+        free(CR);
 
         for(int b = 2; b<=n; b=b*2){
             int** A = sequentialMatrix(n);

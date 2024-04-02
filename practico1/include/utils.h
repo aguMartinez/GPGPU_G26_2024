@@ -45,10 +45,22 @@
 
 //Utilidades de Matrices
 
+/* Crea y devuelve una matriz de tamaño nxn sin cargar (con basura)*/
+int** initializeMatrix(int n);
+
+/* Crea y devuelve una matriz secuencial, A[i][j]== i*10+j */
+int** sequentialMatrix(int n);
+
+/* Crea y devuelve una matriz de tamaño nxn cargada con numeros aleatorios*/
 int** randomMatrix(int n);
 
+/* Crea y devuelve una matriz de tamaño nxn con los mismos elementos que A (no comparte memoria)*/
+int** cloneMatrix(int** A, int n);
+
+/*Imprime por la salida estándar la matriz A (que es de tamaño nxn)*/
 void printMatrix(int** A, int n);
 
+/*Libera la memoria de la matriz A (que es de tamaño nxn)*/
 void freeMatrix(int ** a, int n);
 
 //Utilidades de arreglos
