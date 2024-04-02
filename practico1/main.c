@@ -6,10 +6,8 @@
 //Ejercicio 1:
 #include "include/ej1TiempoPromedioAccesoCache.h"
 #include "include/ej1PrefetchExplicito.h"
-#include "include/ej2ReordenamientoYBlocking.h"
 #include "include/ej1AccesoDesalineado.h"
 #include "include/cacheUtils.h"
-#include "include/utils.h"
 
 //Ejercicio 2:
 #include "include/ej2Reordenamiento.h"

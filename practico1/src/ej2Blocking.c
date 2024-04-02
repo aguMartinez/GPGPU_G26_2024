@@ -38,7 +38,7 @@ void multiplicarMatricesBlocking(int** A, int** B, int** C, int n, int bsize)
     }
 }
 
-int ej2Blocking(int MAX_SIZE){
+int ej2Blocking(){
 
     if (freopen("output_ej2_blocking.csv", "w", stdout) == NULL) {
         perror("freopen failed");
