@@ -2,6 +2,7 @@
 #include "include/ej1TiempoPromedioAccesoCache.h"
 #include "include/ej1PrefetchExplicito.h"
 #include "include/ej2ReordenamientoYBlocking.h"
+#include "include/ej1AccesoDesalineado.h"
 #include "include/cacheUtils.h"
 #include "include/utils.h"
 
@@ -26,6 +27,8 @@ int main() {
                     ejercicio1();
             if(parteEj=='b')
                     ej1PrefetchExplicito();
+            if(parteEj=='c')
+                    ej1AccesoDesalineado();
             break;
         case '2':
             ejercicio2();
