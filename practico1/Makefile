@@ -1,4 +1,4 @@
-#Makefile del Práctico 1 | GPGPU 2024 | FING | Udelar
+#Makefile del Práctico 1 | Grupo 26 | GPGPU 2024 | FING | Udelar
 all: main
 
 # Objetivos que no son archivos.
@@ -10,8 +10,8 @@ HDIR    = include
 CDIR  = src
 ODIR    = obj
 
-MODULOS = utils cacheUtils ejercicio1 ej1PrefetchExplicito ejercicio2 
-PUNTOH = utils cacheUtils ejercicio1 ej1PrefetchExplicito ejercicio2
+MODULOS = utils cacheUtils ej1PrefetchExplicito ej1AccesoDesalineado ej1TiempoPromedioAccesoCache ej2Reordenamiento ej2Blocking
+PUNTOH = utils cacheUtils ej1PrefetchExplicito ej1AccesoDesalineado ej1TiempoPromedioAccesoCache ej2Reordenamiento ej2Blocking
 
 # lista de archivos, con directorio y extensión
 HS   = $(PUNTOH:%=$(HDIR)/%.h)
