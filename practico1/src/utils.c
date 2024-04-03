@@ -27,7 +27,18 @@ int** sequentialMatrix(int n){
         }
     }
     return A;
+}
 
+int** sequentialAlignedMatrix(int n){
+    int **A = (int **) _aligned_malloc(n * sizeof(int*),32*1024);
+
+    for (int i = 0; i < n; i++) {
+        A[i] = (int *) _aligned_malloc(n * sizeof(int),32*1024);
+        for (int j = 0; j < n; j++) {
+            A[i][j] = i*n + j;
+        }
+    }
+    return A;
 }
 
 int ** randomMatrix(int n){
@@ -87,6 +98,14 @@ void freeMatrix(int ** a, int n) {
 
     free(a);
 }
+
+void freeAlignedMatrix(int ** a, int n) {
+    for (int i = 0; i < n; i++)
+        _aligned_free(a[i]);
+
+    _aligned_free(a);
+}
+
 
 void shuffleArray(int* array, int n) {
     for (int i = n - 1; i > 0; i--) {

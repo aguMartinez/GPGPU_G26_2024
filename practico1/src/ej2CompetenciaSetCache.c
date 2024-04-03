@@ -39,8 +39,8 @@ void ej2CompetenciaSetCache() {
     int bsizeFila = 64*16;
     int bloque = 128;
 
-    int** A = sequentialMatrix(n);
-    int** B = sequentialMatrix(n);
+    int** A = sequentialAlignedMatrix(n);
+    int** B = sequentialAlignedMatrix(n);
     int** C = initializeMatrix(n);
 
     double interval = 0;
@@ -52,12 +52,12 @@ void ej2CompetenciaSetCache() {
     printf("tiempo (s),Gflops\n");
     printf("%f %f\n",interval/1E9, gflops);
 
-    freeMatrix(A,n);
-    freeMatrix(B,n);
+    freeAlignedMatrix(A,n);
+    freeAlignedMatrix(B,n);
     freeMatrix(C,n);
 
-    A = sequentialMatrix(n);
-    B = sequentialMatrix(n);
+    A = sequentialAlignedMatrix(n);
+    B = sequentialAlignedMatrix(n);
     C = initializeMatrix(n);
 
     NS(multiplicarMatricesBlocking(A,B,C,n,bloque), interval)
@@ -66,8 +66,8 @@ void ej2CompetenciaSetCache() {
     printf("tiempo (s),Gflops\n");
     printf("%f %f\n",interval/1E9, gflops);
 
-    freeMatrix(A,n);
-    freeMatrix(B,n);
+    freeAlignedMatrix(A,n);
+    freeAlignedMatrix(B,n);
     freeMatrix(C,n);
 
 }

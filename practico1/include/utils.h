@@ -73,7 +73,8 @@ int* sequentialArray(int n);
 
 void setConsoleAsStdOutput();
 void set_cpu_affinity(int cpu_id);
-
+int** sequentialAlignedMatrix(int n);
+void freeAlignedMatrix(int ** a, int n);
 //void setCPU();
 
 #endif //PRACTICO1_UTILS_H
