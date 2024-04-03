@@ -1,6 +1,3 @@
-//
-// Created by amartinez on 1/4/2024.
-//
 
 #include "../include/ej2CompetenciaSetCache.h"
 #include "../include/ej2Blocking.h"
@@ -13,15 +10,13 @@ void multiplicarMatricesBlockingRectangular(int** A, int** B, int** C, int n, in
 {
     int i, j, k, kk, jj;
     volatile int sum;
-    int enX = bsizeX * (n/bsizeX); // Ajustar para bloques en dirección X
-    int enY = bsizeY * (n/bsizeY); // Ajustar para bloques en dirección Y
+    int enX = bsizeX * (n/bsizeX);
+    int enY = bsizeY * (n/bsizeY);
 
-    // Inicializar C a 0
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
             C[i][j] = 0;
 
-    // Bucle principal para multiplicar bloques
     for (kk = 0; kk < enX; kk += bsizeX) {
         for (jj = 0; jj < enY; jj += bsizeY) {
             for (i = 0; i < n; i++) {
@@ -39,19 +34,40 @@ void multiplicarMatricesBlockingRectangular(int** A, int** B, int** C, int n, in
 
 void ej2CompetenciaSetCache() {
 
-    int n = 64 * 16 * 2; //2048
-    int bloque = 12 * 4;
-
+    int n = 64 * 16 * 2;
+    int bsizeColumna = n / 4;
+    int bsizeFila = 64*16;
+    int bloque = 128;
 
     int** A = sequentialMatrix(n);
     int** B = sequentialMatrix(n);
     int** C = initializeMatrix(n);
 
-
     double interval = 0;
+    double gflops = 0;
+
+    NS(multiplicarMatricesBlockingRectangular(A,B,C,n,bsizeFila,bsizeColumna), interval)
+
+    gflops = ((2.0 * n * n * n) / (interval / 1E9))/ 1E9;
+    printf("tiempo (s),Gflops\n");
+    printf("%f %f\n",interval/1E9, gflops);
+
+    freeMatrix(A,n);
+    freeMatrix(B,n);
+    freeMatrix(C,n);
+
+    A = sequentialMatrix(n);
+    B = sequentialMatrix(n);
+    C = initializeMatrix(n);
+
     NS(multiplicarMatricesBlocking(A,B,C,n,bloque), interval)
 
-    printf("tiempo (s)\n");
-    printf("%f",interval/1E9);
+    gflops = ((2.0 * n * n * n) / (interval / 1E9))/ 1E9;
+    printf("tiempo (s),Gflops\n");
+    printf("%f %f\n",interval/1E9, gflops);
+
+    freeMatrix(A,n);
+    freeMatrix(B,n);
+    freeMatrix(C,n);
 
 }
