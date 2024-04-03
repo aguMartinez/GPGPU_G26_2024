@@ -10,8 +10,8 @@ HDIR    = include
 CDIR  = src
 ODIR    = obj
 
-MODULOS = utils cacheUtils ej1PrefetchExplicito ej1AccesoDesalineado ej1TiempoPromedioAccesoCache ej2Reordenamiento ej2Blocking
-PUNTOH = utils cacheUtils ej1PrefetchExplicito ej1AccesoDesalineado ej1TiempoPromedioAccesoCache ej2Reordenamiento ej2Blocking
+MODULOS = utils cacheUtils ej1PrefetchExplicito ej1AccesoDesalineado ej1TiempoPromedioAccesoCache ej2Reordenamiento ej2Blocking ej2CompetenciaSetCache
+PUNTOH = utils cacheUtils ej1PrefetchExplicito ej1AccesoDesalineado ej1TiempoPromedioAccesoCache ej2Reordenamiento ej2Blocking ej2CompetenciaSetCache
 
 # lista de archivos, con directorio y extensión
 HS   = $(PUNTOH:%=$(HDIR)/%.h)

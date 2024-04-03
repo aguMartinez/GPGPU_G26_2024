@@ -12,6 +12,7 @@
 //Ejercicio 2:
 #include "include/ej2Reordenamiento.h"
 #include "include/ej2Blocking.h"
+#include "include/ej2CompetenciaSetCache.h"
 
 //Bibliotecas estandar:
 #include <stdio.h>
@@ -46,7 +47,8 @@ int main() {
                 ej2Reordenamiento();
             if(parteEj=='b')
                 ej2Blocking();
-            //if(parteEj=='c')
+            if(parteEj=='c')
+                ej2CompetenciaSetCache();
             break;
         case '3':
             ejercicio1();
