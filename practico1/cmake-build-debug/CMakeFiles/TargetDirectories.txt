@@ -1,3 +1,0 @@
-C:/Users/Valen/CLionProjects/GPGPU_G26_2024/practico1/cmake-build-debug/CMakeFiles/practico1.dir
-C:/Users/Valen/CLionProjects/GPGPU_G26_2024/practico1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Valen/CLionProjects/GPGPU_G26_2024/practico1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
