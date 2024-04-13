@@ -31,8 +31,8 @@ __device__ int modulo(int a, int b){
 
 __global__ void decrypt_kernel(int *d_message, int length)
 {
-	int i = blockDim.x * blockIdx.x + threadIdx.x;
-	if(i < length) {
+	int index = blockDim.x * blockIdx.x + threadIdx.x;
+	for (int i = index; i < length; i += blockDim.x * gridDim.x) {
 		d_message[i] = modulo(A_MMI_M*(d_message[i] - B), M);
 	}
 }
@@ -52,11 +52,18 @@ void ej1B(int* d_message, int length) {
 }
 
 void ej1C(int* d_message, int length) {
-	int blocks_per_grid = 1024;
-	int threads_per_block = (length + blocks_per_grid - 1) / blocks_per_grid;
-	printf("%d, %d",threads_per_block, length);
+	int blocks_per_grid = 128;
+	int threads_per_block = 256;
 
 	decrypt_kernel<<<blocks_per_grid, threads_per_block>>>(d_message, length);
+}
+
+__global__ void countCharacters(int* d_message, int* histograma, int length) {
+    int index = threadIdx.x + blockIdx.x * blockDim.x;
+
+	for (int i = index; i < length; i += blockDim.x * gridDim.x) {
+		atomicAdd( &(histograma[d_message[i]]), 1);
+	}
 }
 
 int main(int argc, char *argv[])
@@ -98,17 +105,42 @@ int main(int argc, char *argv[])
  	cudaMemcpy(h_message, d_message, size, cudaMemcpyDeviceToHost);
 
 	// despliego el mensaje
+
 	for (int i = 0; i < length; i++) {
 		printf("%c", (char)h_message[i]);
 	}
 	printf("\n");
-	
 
-	// libero la memoria en la GPU
-	cudaFree(d_message);
+    int* d_count;
+    int h_count[256] = {0};
+    size = 256 * sizeof(int);
+
+    cudaMalloc((void**)&d_count, size);
+
+    cudaMemcpy(d_count, h_count, size, cudaMemcpyHostToDevice);
+
+    int threads_per_block = 256;
+    int blocks_per_grid = (length + threads_per_block - 1) / threads_per_block;
+
+	countCharacters<<<blocks_per_grid, threads_per_block>>>(d_message, d_count, length);
+
+    cudaMemcpy(h_count, d_count, size, cudaMemcpyDeviceToHost);
+
+    for (int i = 0; i < 256; i++) {
+        if (i >= 32 && i <= 126) {
+            printf("%c %d \n", i, h_count[i]);
+        } else {
+            printf("0x%02x %d \n", i, h_count[i]);
+		}    
+	}
+
 
 	// libero la memoria en la CPU
 	free(h_message);
+
+	// libero la memoria en la GPU
+	cudaFree(d_message);
+    cudaFree(d_count);
 
 	return 0;
 }
