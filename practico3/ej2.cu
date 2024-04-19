@@ -1,0 +1,1 @@
+/* Ejercicio 2 | Practico 3 | Grupo 26 | GPGPU 2024*/
