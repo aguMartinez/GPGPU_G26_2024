@@ -1,3 +1,5 @@
+/* Ejercicio 1 | Practico 3 | Grupo 26 | GPGPU 2024*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include "cuda.h"
@@ -22,7 +24,7 @@ int* randomMatrix(int n, int m){
     return A;
 }
 
-__global__ void transpose_kernel(int* d_M, int* d_MTrans){
+__global__ void transpose_kernel(int* d_M, int* d_MTrans, int n){
     int x = blockIdx.x * blockDim.x + threadIdx.x;
     int y = blockIdx.y * blockDim.y + threadIdx.y
 
@@ -46,18 +48,20 @@ __global__ void transpose_kernel(int* d_M, int* d_MTrans){
     h_M = randomMatrix(n,m);
 
     /* reservar memoria en la GPU */
+    int* d_M;
+    int* d_MTrans;
 	CUDA_CHK(cudaMalloc((void **)&d_M, size)); //matriz de entrada
     CUDA_CHK(cudaMalloc((void **)&d_MTrans, size)); //matriz de salida
 
 	/* copiar los datos de entrada a la GPU */
-    int* d_M;
+
  	cudaMemcpy(d_M, h_M, size, cudaMemcpyHostToDevice);
 
     /* Ej 1:*/
 	int threads_per_block = 32*32;
     int blocks_per_grid = 128; //Todo: arreglar este num.
 
-    transpose_kernel<<<blocks_per_grid, threads_per_block>>>(d_M, size);
+    transpose_kernel<<<blocks_per_grid, threads_per_block>>>(d_M, d_MTrans size);
     
     /* Copiar los datos de salida a la CPU en h_message */
  	cudaMemcpy(h_MTrans, d_MTrans, size, cudaMemcpyDeviceToHost);
