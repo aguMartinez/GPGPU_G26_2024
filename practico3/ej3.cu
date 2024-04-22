@@ -24,9 +24,15 @@ int* randomMatrix(int n, int m){
     return A;
 }
 
-__global__ void transpose_kernel(int* d_M, int* d_MTrans){
-    int x = blockIdx.x * blockDim.x + threadIdx.x;
-    int y = blockIdx.y * blockDim.y + threadIdx.y
+__global__ void matrixVectorKernel(int* A, int* v, int* res, int numRows, int numCols){
+    int row = blockIdx.x * blockDim.x + threadIdx.x;
+    if (row < numRows){
+        int sum = 0;
+        for (int col = 0; col < numCols; col++) {
+            sum += A[row * numCols + col] * v[col];
+        }
+    res[row] = sum;
+    }
 
     if (x < n && y < n){
         d_MTrans[y + x * n] = d_M[x + y * n];
@@ -37,8 +43,8 @@ __global__ void transpose_kernel(int* d_M, int* d_MTrans){
  int main(){
 
     /* definir tamanios de matriz*/
-    int n = 256;
-    int m = n;
+    int n = 10240;
+    int m = 256;
     int size = n*m*sizeof(int)
     
     int* R;
