@@ -4,12 +4,6 @@
 #include <stdio.h>
 #include "cuda.h"
 
-/* Ejercicio 1 | Practico 3 | Grupo 26 | GPGPU 2024*/
-
-#include <stdlib.h>
-#include <stdio.h>
-#include "cuda.h"
-
 #define CUDA_CHK(ans) { gpuAssert((ans), __FILE__, __LINE__); }
 
 inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort=true)

@@ -33,10 +33,6 @@ __global__ void matrixVectorKernel(int* A, int* v, int* res, int numRows, int nu
         }
     res[row] = sum;
     }
-
-    if (x < n && y < n){
-        d_MTrans[y + x * n] = d_M[x + y * n];
-    }
 }
 
 
