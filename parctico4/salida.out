@@ -1,0 +1,9 @@
+Compilando el archivo ej3B.cu...
+The target application terminated. One or more process it created re-parented.
+Waiting for termination of re-parented processes.
+Use the `--wait` option to modify this behavior.
+Failed to create '/clusteruy/home/gpgpu26/practico4/output/ej3B_profile.nsys-rep': File exists.
+Use `--force-overwrite true` to overwrite existing files.
+Failed to create '/clusteruy/home/gpgpu26/practico4/output/ej3B_profile.sqlite': File exists.
+Use `--force-overwrite true` to overwrite existing files.
+SKIPPED: /tmp/nsys-report-876c.sqlite does not contain NV Tools Extension (NVTX) data.
