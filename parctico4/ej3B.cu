@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #include "cuda.h"
 
-#define HISTOGRAM_LENGTH 8
-#define FILAS 16
-#define COLUMNAS 16
+#define HISTOGRAM_LENGTH 32
+#define FILAS 1024
+#define COLUMNAS 1024
 
 #define CUDA_CHK(ans) { gpuAssert((ans), __FILE__, __LINE__); }
 inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort=true)
@@ -26,6 +26,7 @@ int *randomMatrix(int f, int c)
     {
         A[i] = rand() % HISTOGRAM_LENGTH;
     }
+
     return A;
 }
 
@@ -79,9 +80,21 @@ __global__ void reduction(int* d_MH, int numRows, int numCols, int salto) {
 
 	int num_pos = threadIdx.y * blockDimX + threadIdx.x;
 
-	intermedio[num_pos] = d_MH[(y+salto) * HISTOGRAM_LENGTH + x];
+	intermedio[num_pos] = d_MH[y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH];
 
 	__syncthreads();
+
+	if(num_pos == 0 && blockIdx.x == 1 && blockIdx.y == 1){
+		printf("\n");
+		printf("--------------- INTERMEDIO (1, 1) -------------------");
+		printf("\n");
+		for (int j = 0; j <  4*4*sizeof(int); j++)
+		{
+			printf("%d ", intermedio[j]);
+		}
+		printf("\n");
+	}
+
 
 	int i = blockDimX * blockDim.y / 2;
 	while (i >= blockDimX) {
@@ -96,7 +109,7 @@ __global__ void reduction(int* d_MH, int numRows, int numCols, int salto) {
 
 	// Guardar los resultado
 	if (num_pos < blockDimX) {
-		d_MH[y *  HISTOGRAM_LENGTH + x] = intermedio[num_pos];
+		d_MH[y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH] = intermedio[num_pos];
 	}
 }
 
@@ -144,57 +157,51 @@ int main(int argc, char *argv[])
 	dim3 numBlocks( (COLUMNAS + blockX - 1) / blockX, (FILAS + blockY - 1) / blockY);
 
 	int sizeMH = numBlocks.x * numBlocks.y * HISTOGRAM_LENGTH * sizeof(int);
-
 	int* h_MH = (int*) malloc(sizeMH);
 	int* d_MH;
 
 	CUDA_CHK(cudaMalloc((void **)&d_MH, sizeMH));
-
     decrypt_kernel_ej3B<<<numBlocks, threadsPerBlock>>>(d_M, d_H, d_MH);
-
 	/* Copiar los datos de salida a la CPU en h_message */
-	// cudaMemcpy(h_H, d_H, sizeH, cudaMemcpyDeviceToHost);
+	/*
 	cudaMemcpy(h_MH, d_MH, sizeMH, cudaMemcpyDeviceToHost);
 
 	printf("-----------MATRIZ ORIGINAL------------\n");
 	printMatrix(h_M, FILAS, COLUMNAS);
-
+	*/
 	int remainingRows = numBlocks.x * numBlocks.y;
 	cudaMemcpy(h_MH, d_MH, sizeMH, cudaMemcpyDeviceToHost);
-	printf("-----------MATRIZ HISTOGRAMA ANTES DEL REDUCE------------\n");
-	printMatrix(h_MH, remainingRows, HISTOGRAM_LENGTH);
 
-	
-	//begin initial_reduction
-	remainingRows = numBlocks.x * numBlocks.y;  //Todas las filas restantes
-	blockX = 4; //Pasar por input
-	blockY = 4; //Pasar por input
-
-	dim3 threadsPerBlock2(blockX, blockY);
-	dim3 numBlocks2((HISTOGRAM_LENGTH + blockX - 1) / blockX, (remainingRows + blockY - 1) / blockY);
+	threadsPerBlock.x = blockX;
+	threadsPerBlock.y = blockY;
+	numBlocks.x = (HISTOGRAM_LENGTH + blockX - 1) / blockX;
+	numBlocks.y = (remainingRows + blockY - 1) / blockY;
 
 	int sizeShared = blockX * blockY * sizeof(int);
-	reduction<<<numBlocks2, threadsPerBlock2, sizeShared>>>(d_MH, remainingRows, HISTOGRAM_LENGTH, 0);
-	//end initial_reduction
-	/*
-	//begin loop
-	remainingRows = numBlocks.x;
-	blockY = 4; //Idealmente se pasa por input
-	blockX = 1024/blockY;
-	sizeShared = blockX * blockY * sizeof(int);
-	dim3 threadsPerBlock3(blockX, blockY);
-	dim3 numBlocks3((HISTOGRAM_LENGTH + blockX - 1) / blockX, (remainingRows + blockY - 1) / blockY);
+	int salto = 1;
+	int it = 0;		
 
-	reduction<<<numBlocks2, threadsPerBlock2, sizeShared>>>(d_MH, remainingRows, HISTOGRAM_LENGTH, remainingRows);
+	while (remainingRows > 1) {
+		if (it == 1) {
+			salto = threadsPerBlock.y;
+		}
+		reduction<<<numBlocks, threadsPerBlock, sizeShared>>>(d_MH, remainingRows, HISTOGRAM_LENGTH, salto - 1);
 
-	//end loop when remainingRows = 0
-	*/
-	
+		salto = salto * salto;
+
+		it ++;
+
+		remainingRows = numBlocks.y;
+
+		numBlocks.y = (remainingRows + blockY - 1) / blockY;
+	}
 
  	cudaMemcpy(h_MH, d_MH, sizeMH, cudaMemcpyDeviceToHost);
 
     printf("-----------MATRIZ HISTOGRAMA LUEGO DEL REDUCE------------\n");
 	printMatrix(h_MH, remainingRows, HISTOGRAM_LENGTH);
+	printf("---------------------------------\n");
+	//begin loop
 
 	// libero la memoria en la CPU
 	free(h_M);
