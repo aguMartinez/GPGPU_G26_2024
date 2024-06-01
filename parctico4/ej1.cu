@@ -4,9 +4,6 @@
 #include <stdio.h>
 #include "cuda.h"
 
-#define TILE_FILA 32
-#define TILE_COLUMNA 16
-
 #define CUDA_CHK(ans)                         \
     {                                         \
         gpuAssert((ans), __FILE__, __LINE__); \
@@ -33,7 +30,7 @@ int *randomMatrix(int f, int c)
     return A;
 }
 
-int isTransponse(int * m1, int * m2, int c, int f) {
+int matrixIsTransposed(int * m1, int * m2, int c, int f) {
 
     for (int i = 0; i < f; i++) {
         for (int j = 0; j < c; j ++) {
@@ -59,22 +56,53 @@ void printMatrix(int *A, int f, int c)
 
 __global__ void transposeKernel(int *d_M, int *d_MTrans, int f, int c)
 {
-    __shared__ int tile[TILE_COLUMNA * TILE_FILA];
+    extern __shared__ int tile[];
 
     int local_x = threadIdx.x;
     int local_y = threadIdx.y;
-    int global_x = blockIdx.x * TILE_COLUMNA + local_x;
-    int global_y = blockIdx.y * TILE_FILA + local_y;
 
-    tile[local_x * TILE_FILA + local_y] = d_M[global_y * c + global_x];
+    int blockDim_x = blockDim.x;
+    int blockDim_y = blockDim.y;
+
+    int global_x = blockIdx.x * blockDim_x + local_x;
+    int global_y = blockIdx.y * blockDim_y + local_y;
+    
+
+    tile[local_x * blockDim_y + local_y] = d_M[global_y * c + global_x];
 
     __syncthreads();
 
-    int num_pos = local_y * TILE_COLUMNA + local_x;
+    int num_pos = local_y * blockDim_x + local_x;
 
-    int offset = blockIdx.x * TILE_COLUMNA * f + blockIdx.y * TILE_FILA ;
+    int offset = blockIdx.x * blockDim_x * f + blockIdx.y * blockDim_y;
 
-    int posTile = (num_pos / TILE_FILA * f) + (num_pos % TILE_FILA);
+    int posTile = (num_pos / blockDim_x * f) + (num_pos % blockDim_y);
+
+    d_MTrans[offset + posTile] = tile[num_pos];
+}
+
+__global__ void transposeKernelDummy(int *d_M, int *d_MTrans, int f, int c, int tileX, int tileY)
+{
+    extern __shared__ int tile[];
+
+    //int threadIdx.x = threadIdx.x;
+    //int threadIdx.y = threadIdx.y;
+
+    //int blockDim.x = blockDim.x;
+    //int blockDim.y = blockDim.y;
+
+    //int global_x = blockIdx.x * blockDim.x + threadIdx.x;
+    //int global_y = blockIdx.y * blockDim.y + threadIdx.y;
+
+    tile[threadIdx.x * tileY + threadIdx.y] = d_M[blockIdx.y * blockDim.y + threadIdx.y * c + blockIdx.x * blockDim.x + threadIdx.x];
+
+    __syncthreads();
+
+    int num_pos = threadIdx.y * blockDim.x + threadIdx.x;
+
+    int offset = blockIdx.x * blockDim.x * f + blockIdx.y * blockDim.y;
+
+    int posTile = (num_pos / blockDim.y * f) + (num_pos % blockDim.y);
 
     d_MTrans[offset + posTile] = tile[num_pos];
 }
@@ -82,7 +110,7 @@ __global__ void transposeKernel(int *d_M, int *d_MTrans, int f, int c)
 
 int main(int argc, char *argv[])
 {
-    if (argc != 3)
+    if (argc < 5)
     {
         printf("Faltaron argumentos %d \n", argc);
         return 1;
@@ -92,7 +120,12 @@ int main(int argc, char *argv[])
     int f = atoi(argv[1]);
     int c = atoi(argv[2]);
 
-    for (int input = 1; input < 3; input++)
+    int blockX = atoi(argv[3]);
+    int blockY = atoi(argv[4]);
+
+    int colExtra = 1;
+
+    for (int input = 1; input < 5; input++)
     {
         printf("%d ", atoi(argv[input]));
     }
@@ -102,8 +135,8 @@ int main(int argc, char *argv[])
     int size = f * c * sizeof(int);
 
     /* generar matrices del host */
-    int *h_M = randomMatrix(f, c);
-    int *h_MTrans = (int *)malloc(size);
+    int* h_M = randomMatrix(f, c);
+    int* h_MTrans = (int *)malloc(size);
 
     /* reservar memoria en la GPU */
     int *d_M;
@@ -114,13 +147,15 @@ int main(int argc, char *argv[])
     /* copiar los datos de entrada a la GPU */
     cudaMemcpy(d_M, h_M, size, cudaMemcpyHostToDevice);
 
-    /* Ej 1:*/
-    dim3 threadsPerBlock(TILE_COLUMNA, TILE_FILA);
-    dim3 numBlocks((c + TILE_COLUMNA - 1) / TILE_COLUMNA, (f + TILE_FILA - 1) / TILE_FILA);
+    /* Ej 1a:*/
+    dim3 threadsPerBlock(blockX, blockY);
+    dim3 numBlocks((c + blockX - 1) / blockX, (f + blockY - 1) / blockY);
+
+    int sizeTile = blockX * blockY * sizeof(int);
 
     for (int i = 0; i < 10; i++)
     {
-        transposeKernel<<<numBlocks, threadsPerBlock>>>(d_M, d_MTrans, f, c);
+        transposeKernel<<<numBlocks, threadsPerBlock, sizeTile>>>(d_M, d_MTrans, f, c);
     }
 
     /* Copiar los datos de salida a la CPU en h_message */
@@ -128,11 +163,42 @@ int main(int argc, char *argv[])
 
     /* Imprimir resultados*/
 
-    printf("transpuesta %d: ",isTransponse(h_M,h_MTrans,c,f));
-    /*printMatrix(h_M, f, c);
-    printf("-----------------------\n");
-    printMatrix(h_MTrans, c, f);
-*/
+    printf("transpuesta: %d ",matrixIsTransposed(h_M,h_MTrans,c,f));
+
+    free(h_MTrans);
+    cudaFree(d_MTrans);
+
+    /*Ej 1b:*/
+
+    h_MTrans = (int *)malloc(size);
+    CUDA_CHK(cudaMalloc((void **)&d_MTrans, size));
+
+    int tileX = blockX + colExtra;
+    int tileY = blockY;
+
+    sizeTile = tileX * tileY * sizeof(int);
+
+    for (int i = 0; i < 10; i++)
+    {
+        transposeKernelDummy<<<numBlocks, threadsPerBlock, sizeTile>>>(d_M, d_MTrans, f, c, tileX, tileY);
+    }
+
+    /* Copiar los datos de salida a la CPU en h_message */
+    cudaMemcpy(h_MTrans, d_MTrans, size, cudaMemcpyDeviceToHost);
+    
+
+
+    /* Imprimir resultados*/
+    
+    
+    printf("transpuesta Dummy: %d ",matrixIsTransposed(h_M,h_MTrans,c,f));
+    
+    /*
+    printMatrix(h_M,f,c);
+    printf("------------------------------------\n");
+    printMatrix(h_MTrans,f,c);
+    */
+
     /* Liberar memoria */
     free(h_M);
     free(h_MTrans);
