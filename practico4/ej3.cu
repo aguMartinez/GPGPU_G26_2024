@@ -5,8 +5,8 @@
 #include "cuda.h"
 
 #define HISTOGRAM_LENGTH 256
-#define FILAS 3840
-#define COLUMNAS 2160
+#define FILAS 2160
+#define COLUMNAS 3840
 
 #define CUDA_CHK(ans) { gpuAssert((ans), __FILE__, __LINE__); }
 inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort=true)
@@ -55,8 +55,10 @@ __global__ void decrypt_kernel_ej3(int *d_M, int * d_H)
 
 	__syncthreads();
 
-	int elem = d_M[y * COLUMNAS + x];
-	atomicAdd(&shared_histogram[elem], 1);
+    if (x < COLUMNAS && y < FILAS) {
+        int elem = d_M[y * COLUMNAS + x];
+        atomicAdd(&shared_histogram[elem], 1);
+    }
 	
 	__syncthreads();
 
@@ -94,7 +96,7 @@ int main(int argc, char *argv[])
 
 	memset(h_H, 0, sizeH);
 
-	printMatrix(h_H, 1, HISTOGRAM_LENGTH);
+	//printMatrix(h_H, 1, HISTOGRAM_LENGTH);
 
 	int * d_M; 
 	int * d_H;
@@ -112,13 +114,20 @@ int main(int argc, char *argv[])
 	dim3 threadsPerBlock(blockX, blockY);
 	dim3 numBlocks( (COLUMNAS + blockX - 1) / blockX, (FILAS + blockY - 1) / blockY);
 
-	decrypt_kernel_ej3<<<numBlocks, threadsPerBlock>>>(d_M, d_H);
+    for (int i = 0; i < 10; i++)
+    {
+        CUDA_CHK(cudaMemset(d_H, 0, sizeH));
+
+        decrypt_kernel_ej3<<<numBlocks, threadsPerBlock>>>(d_M, d_H);
+        //CUDA_CHK(cudaDeviceSynchronize());
+        //CUDA_CHK(cudaGetLastError());
+    }
 
 	/* Copiar los datos de salida a la CPU en h_message */
  	cudaMemcpy(h_H, d_H, sizeH, cudaMemcpyDeviceToHost);
 
 
-    printMatrix(h_M, FILAS, COLUMNAS);
+    //printMatrix(h_M, FILAS, COLUMNAS);
     printf("-----------------------\n");
 
 	printMatrix(h_H, 1, HISTOGRAM_LENGTH);
