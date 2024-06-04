@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cuda.h"
+#include <math.h>
 
 #define HISTOGRAM_LENGTH 256
 #define FILAS 2160
@@ -110,13 +111,17 @@ __global__ void reduction(int* d_MH, int numRows, int salto) {
     __syncthreads();
 
 	// Guardar los resultado
-	if (num_pos < blockDimX) {
+	if (num_pos < blockDimX && ((y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH) < (numRows * HISTOGRAM_LENGTH))) {
 		d_MH[y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH] = intermedio[num_pos];
 	}
 }
 
 int main(int argc, char *argv[])
 {
+	int sharedMemPerBlock;
+	cudaDeviceGetAttribute(&sharedMemPerBlock, cudaDevAttrMaxSharedMemoryPerBlock, 0);
+	printf("Max shared memory per block: %d bytes\n", sharedMemPerBlock);
+
 
 	if (argc != 3)
     {
@@ -164,38 +169,29 @@ int main(int argc, char *argv[])
 	/* Copiar los datos de salida a la CPU en h_message */
 	cudaMemcpy(h_MH, d_MH, sizeMH, cudaMemcpyDeviceToHost);
 
-	threadsPerBlock.x = blockX;
-	threadsPerBlock.y = blockY;
 	numBlocks.x = (HISTOGRAM_LENGTH + blockX - 1) / blockX;
 	numBlocks.y = (remainingRows + blockY - 1) / blockY;
 
 	int sizeShared = blockX * blockY * sizeof(int);
-	int salto = 1;
-	int it = 0;
-
+	long salto = 1;
 
 	while (remainingRows > 1) {
-
-		if (it == 1) {
-			salto = threadsPerBlock.y;
-		}
 
 		reduction<<<numBlocks, threadsPerBlock, sizeShared>>>(d_MH, rowsMH, salto - 1);
         cudaDeviceSynchronize();
         CUDA_CHK(cudaGetLastError());
 
-        it++;
+		salto = salto * blockY;
 
-        remainingRows = (remainingRows + blockY - 1) / blockY;
-        numBlocks.y = (remainingRows + blockY - 1) / blockY;
+		remainingRows = (remainingRows + blockY - 1) / blockY;
 
-		salto = salto * salto;
+        numBlocks.y = remainingRows;
 	}
 
  	cudaMemcpy(h_MH, d_MH, sizeMH, cudaMemcpyDeviceToHost);
 
 	printf("-----------MATRIZ HISTOGRAMA LUEGO DEL REDUCE------------\n");
-	printMatrix(h_MH, remainingRows, HISTOGRAM_LENGTH);
+	printMatrix(h_MH, 1, HISTOGRAM_LENGTH);
 	printf("---------------------------------\n");
 
 
