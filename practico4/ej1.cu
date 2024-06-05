@@ -54,47 +54,14 @@ void printMatrix(int *A, int f, int c)
     }
 }
 
-__global__ void transposeKernel(int *d_M, int *d_MTrans, int f, int c)
-{
+__global__ void transposeKernel(int *d_M, int *d_MTrans, int f, int c){
     extern __shared__ int tile[];
 
-    int local_x = threadIdx.x;
-    int local_y = threadIdx.y;
-
-    int blockDim_x = blockDim.x;
-    int blockDim_y = blockDim.y;
-
-    int global_x = blockIdx.x * blockDim_x + local_x;
-    int global_y = blockIdx.y * blockDim_y + local_y;
+    int global_x = blockIdx.x * blockDim.x + threadIdx.x;
+    int global_y = blockIdx.y * blockDim.y + threadIdx.y;
     
 
-    tile[local_x * blockDim_y + local_y] = d_M[global_y * c + global_x];
-
-    __syncthreads();
-
-    int num_pos = local_y * blockDim_x + local_x;
-
-    int offset = blockIdx.x * blockDim_x * f + blockIdx.y * blockDim_y;
-
-    int posTile = (num_pos / blockDim_x * f) + (num_pos % blockDim_y);
-
-    d_MTrans[offset + posTile] = tile[num_pos];
-}
-
-__global__ void transposeKernelDummy(int *d_M, int *d_MTrans, int f, int c, int tileX, int tileY)
-{
-    extern __shared__ int tile[];
-
-    //int threadIdx.x = threadIdx.x;
-    //int threadIdx.y = threadIdx.y;
-
-    //int blockDim.x = blockDim.x;
-    //int blockDim.y = blockDim.y;
-
-    //int global_x = blockIdx.x * blockDim.x + threadIdx.x;
-    //int global_y = blockIdx.y * blockDim.y + threadIdx.y;
-
-    tile[threadIdx.x * tileY + threadIdx.y] = d_M[blockIdx.y * blockDim.y + threadIdx.y * c + blockIdx.x * blockDim.x + threadIdx.x];
+    tile[threadIdx.x * blockDim.y + threadIdx.y] = d_M[(global_y) * c + (blockIdx.x * blockDim.x + threadIdx.x)];
 
     __syncthreads();
 
@@ -102,6 +69,24 @@ __global__ void transposeKernelDummy(int *d_M, int *d_MTrans, int f, int c, int 
 
     int offset = blockIdx.x * blockDim.x * f + blockIdx.y * blockDim.y;
 
+    int posTile = (num_pos / blockDim.y * f) + (num_pos % blockDim.y);
+
+    d_MTrans[offset + posTile] = tile[num_pos];
+}
+
+__global__ void transposeKernelDummy(int *d_M, int *d_MTrans, int f, int c, int tileX, int tileY){
+    extern __shared__ int tile[];
+
+    tile[threadIdx.x * tileY + threadIdx.y] = d_M[(blockIdx.y * blockDim.y + threadIdx.y) * c + (blockIdx.x * blockDim.x + threadIdx.x)];
+
+    __syncthreads();
+
+    //num_pos identifica al n-esimo thread del bloque
+    int num_pos = threadIdx.y * blockDim.x + threadIdx.x;
+
+    //offset es la posicion del elemento (0,0) del  bloque a trapsoner en la matriz resultado
+    int offset = blockIdx.x * blockDim.x * f + blockIdx.y * blockDim.y;
+ 
     int posTile = (num_pos / blockDim.y * f) + (num_pos % blockDim.y);
 
     d_MTrans[offset + posTile] = tile[num_pos];
@@ -122,8 +107,6 @@ int main(int argc, char *argv[])
 
     int blockX = atoi(argv[3]);
     int blockY = atoi(argv[4]);
-
-    int colExtra = 1;
 
     for (int input = 1; input < 5; input++)
     {
@@ -163,7 +146,7 @@ int main(int argc, char *argv[])
 
     /* Imprimir resultados*/
 
-    printf("transpuesta: %d ",matrixIsTransposed(h_M,h_MTrans,c,f));
+    printf("transpuesta: %d \n",matrixIsTransposed(h_M,h_MTrans,c,f));
 
     free(h_MTrans);
     cudaFree(d_MTrans);
@@ -173,14 +156,14 @@ int main(int argc, char *argv[])
     h_MTrans = (int *)malloc(size);
     CUDA_CHK(cudaMalloc((void **)&d_MTrans, size));
 
-    int tileX = blockX + colExtra;
+    int tileXDummy = blockX + 1;
     int tileY = blockY;
 
-    sizeTile = tileX * tileY * sizeof(int);
+    int sizeTileDummy = tileXDummy * tileY * sizeof(int);
 
     for (int i = 0; i < 10; i++)
     {
-        transposeKernelDummy<<<numBlocks, threadsPerBlock, sizeTile>>>(d_M, d_MTrans, f, c, tileX, tileY);
+        transposeKernelDummy<<<numBlocks, threadsPerBlock, sizeTileDummy>>>(d_M, d_MTrans, f, c, tileXDummy, tileY);
     }
 
     /* Copiar los datos de salida a la CPU en h_message */
