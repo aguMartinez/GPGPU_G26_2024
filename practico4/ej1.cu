@@ -25,7 +25,7 @@ int *randomMatrix(int f, int c)
 
     for (int i = 0; i < f * c; i++)
     {
-        A[i] = rand() % 100;
+        A[i] = i;
     }
     return A;
 }
@@ -74,14 +74,15 @@ __global__ void transposeKernel(int *d_M, int *d_MTrans, int f, int c){
     d_MTrans[offset + posTile] = tile[num_pos];
 }
 
-__global__ void transposeKernelDummy(int *d_M, int *d_MTrans, int f, int c, int tileX, int tileY){
+__global__ void transposeKernelDummy(int *d_M, int *d_MTrans, int f, int c){
     extern __shared__ int tile[];
 
-    tile[threadIdx.x * tileY + threadIdx.y] = d_M[(blockIdx.y * blockDim.y + threadIdx.y) * c + (blockIdx.x * blockDim.x + threadIdx.x)];
+    tile[threadIdx.x * (blockDim.y+1) + threadIdx.y] = d_M[(blockIdx.y * blockDim.y + threadIdx.y) * c + (blockIdx.x * blockDim.x + threadIdx.x)];
 
     __syncthreads();
 
     //num_pos identifica al n-esimo thread del bloque
+    int num_pos_tile = threadIdx.y * blockDim.x + threadIdx.x + threadIdx.y;
     int num_pos = threadIdx.y * blockDim.x + threadIdx.x;
 
     //offset es la posicion del elemento (0,0) del  bloque a trapsoner en la matriz resultado
@@ -89,7 +90,15 @@ __global__ void transposeKernelDummy(int *d_M, int *d_MTrans, int f, int c, int 
  
     int posTile = (num_pos / blockDim.y * f) + (num_pos % blockDim.y);
 
-    d_MTrans[offset + posTile] = tile[num_pos];
+    int pos_dM = offset + posTile /*- blockIdx.y*/;
+
+
+    d_MTrans[pos_dM] = tile[num_pos_tile];
+
+
+    /*if(blockIdx.x == 0 && blockIdx.y == 0){
+        printf("(%d,%d)(%d,%d) => %d, %d (%d) \n", blockIdx.x, blockIdx.y, threadIdx.x, threadIdx.y, pos_dM, tile[num_pos_tile],num_pos);
+    }*/
 }
 
 
@@ -156,14 +165,12 @@ int main(int argc, char *argv[])
     h_MTrans = (int *)malloc(size);
     CUDA_CHK(cudaMalloc((void **)&d_MTrans, size));
 
-    int tileXDummy = blockX + 1;
-    int tileY = blockY;
 
-    int sizeTileDummy = tileXDummy * tileY * sizeof(int);
+    int sizeTileDummy = (blockX) * (blockY+1) * sizeof(int);
 
     for (int i = 0; i < 10; i++)
     {
-        transposeKernelDummy<<<numBlocks, threadsPerBlock, sizeTileDummy>>>(d_M, d_MTrans, f, c, tileXDummy, tileY);
+        transposeKernelDummy<<<numBlocks, threadsPerBlock, sizeTileDummy>>>(d_M, d_MTrans, f, c);
     }
 
     /* Copiar los datos de salida a la CPU en h_message */
@@ -179,7 +186,7 @@ int main(int argc, char *argv[])
     /*
     printMatrix(h_M,f,c);
     printf("------------------------------------\n");
-    printMatrix(h_MTrans,f,c);
+    printMatrix(h_MTrans,c,f);
     */
 
     /* Liberar memoria */
