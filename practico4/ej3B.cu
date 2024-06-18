@@ -3,10 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "cuda.h"
+#include <math.h>
 
-#define HISTOGRAM_LENGTH 32
-#define FILAS 1024
-#define COLUMNAS 1024
+#define HISTOGRAM_LENGTH 256
+#define FILAS 2160
+#define COLUMNAS 3840
 
 #define CUDA_CHK(ans) { gpuAssert((ans), __FILE__, __LINE__); }
 inline void gpuAssert(cudaError_t code, const char *file, int line, bool abort=true)
@@ -30,7 +31,17 @@ int *randomMatrix(int f, int c)
     return A;
 }
 
-void printMatrix(int *A, int f, int c)
+/*Imprime filas salteadas de la matriz A*/
+void printMatrixSalto(int* A, int f, int c, int salto) {
+    for (int i = 0; i < f; i += salto) {
+        for (int j = 0; j < c; j++) {
+            printf("%d ", A[i * c + j]);
+        }
+        printf("\n");
+    }
+}
+
+void printMatrix(int* A, int f, int c)
 {
     for (int i = 0; i < f; i++)
     {
@@ -42,9 +53,9 @@ void printMatrix(int *A, int f, int c)
     }
 }
 
-__global__ void decrypt_kernel_ej3B(int *d_M, int * d_H, int * d_MH)
+__global__ void decrypt_kernel_ej3B(int *d_M, int * d_MH)
 {
-	 __shared__ int shared_histogram[HISTOGRAM_LENGTH];
+	__shared__ int shared_histogram[HISTOGRAM_LENGTH];
 	
 	int x = blockIdx.x * blockDim.x + threadIdx.x; 
 	int y = blockIdx.y * blockDim.y + threadIdx.y;
@@ -57,10 +68,11 @@ __global__ void decrypt_kernel_ej3B(int *d_M, int * d_H, int * d_MH)
 
 	__syncthreads();
 
-	int elem = d_M[y * COLUMNAS + x];
-	//shared_histogram[elem]++;
-	atomicAdd(&shared_histogram[elem], 1);
-	
+    if (x < COLUMNAS && y < FILAS) {
+        int elem = d_M[y * COLUMNAS + x];
+        atomicAdd(&shared_histogram[elem], 1);
+    }
+
 	__syncthreads();
 
 	int block_pos = blockIdx.y * gridDim.x + blockIdx.x;
@@ -70,7 +82,7 @@ __global__ void decrypt_kernel_ej3B(int *d_M, int * d_H, int * d_MH)
 	}
 }
 
-__global__ void reduction(int* d_MH, int numRows, int numCols, int salto) {
+__global__ void reduction(int* d_MH, int numRows, int salto) {
 	extern __shared__ int intermedio[];
 
 	int blockDimX = blockDim.x;
@@ -80,26 +92,17 @@ __global__ void reduction(int* d_MH, int numRows, int numCols, int salto) {
 
 	int num_pos = threadIdx.y * blockDimX + threadIdx.x;
 
-	intermedio[num_pos] = d_MH[y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH];
-
-	__syncthreads();
-
-	if(num_pos == 0 && blockIdx.x == 1 && blockIdx.y == 1){
-		printf("\n");
-		printf("--------------- INTERMEDIO (1, 1) -------------------");
-		printf("\n");
-		for (int j = 0; j <  4*4*sizeof(int); j++)
-		{
-			printf("%d ", intermedio[j]);
-		}
-		printf("\n");
+	if ((y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH) < (numRows * HISTOGRAM_LENGTH)) {
+		intermedio[num_pos] = d_MH[y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH];
+	} else {
+		intermedio[num_pos] = 0;
 	}
 
+	__syncthreads();
 
 	int i = blockDimX * blockDim.y / 2;
 	while (i >= blockDimX) {
 		if (num_pos < i) {
-			//printf("(%d,%d) (%d,%d) %d + %d \n", blockIdx.x, blockIdx.y, threadIdx.x, threadIdx.y, intermedio[num_pos], intermedio[num_pos+i]);
 			intermedio[num_pos] = intermedio[num_pos] + intermedio[num_pos+i];
 		}
 		__syncthreads();
@@ -108,13 +111,17 @@ __global__ void reduction(int* d_MH, int numRows, int numCols, int salto) {
     __syncthreads();
 
 	// Guardar los resultado
-	if (num_pos < blockDimX) {
+	if (num_pos < blockDimX && ((y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH) < (numRows * HISTOGRAM_LENGTH))) {
 		d_MH[y * HISTOGRAM_LENGTH + x + y * salto * HISTOGRAM_LENGTH] = intermedio[num_pos];
 	}
 }
 
 int main(int argc, char *argv[])
 {
+	int sharedMemPerBlock;
+	cudaDeviceGetAttribute(&sharedMemPerBlock, cudaDevAttrMaxSharedMemoryPerBlock, 0);
+	printf("Max shared memory per block: %d bytes\n", sharedMemPerBlock);
+
 
 	if (argc != 3)
     {
@@ -133,84 +140,67 @@ int main(int argc, char *argv[])
 
     printf("\n");
 
-	int sizeH = HISTOGRAM_LENGTH * sizeof(int);
 	int sizeM = FILAS * COLUMNAS * sizeof(int);
 
 	int* h_M = randomMatrix(FILAS, COLUMNAS);
-	int* h_H = (int*) malloc(sizeH);
-
-	memset(h_H, 0, sizeH);
-
 	int* d_M; 
-	int* d_H;
 
-	/* reservar memoria en la GPU */
-	CUDA_CHK(cudaMalloc((void **)&d_H, sizeH));
 	CUDA_CHK(cudaMalloc((void **)&d_M, sizeM));
 
-	/* copiar los datos de entrada a la GPU */
-
  	cudaMemcpy(d_M, h_M, sizeM, cudaMemcpyHostToDevice);
- 	cudaMemcpy(d_H, h_H, sizeH, cudaMemcpyHostToDevice);
+
 
 	dim3 threadsPerBlock(blockX, blockY);
 	dim3 numBlocks( (COLUMNAS + blockX - 1) / blockX, (FILAS + blockY - 1) / blockY);
 
-	int sizeMH = numBlocks.x * numBlocks.y * HISTOGRAM_LENGTH * sizeof(int);
+	int rowsMH = numBlocks.x * numBlocks.y;
+	int sizeMH = rowsMH * HISTOGRAM_LENGTH * sizeof(int);
+	int remainingRows = rowsMH;
+
 	int* h_MH = (int*) malloc(sizeMH);
 	int* d_MH;
 
+
 	CUDA_CHK(cudaMalloc((void **)&d_MH, sizeMH));
-    decrypt_kernel_ej3B<<<numBlocks, threadsPerBlock>>>(d_M, d_H, d_MH);
+	printf("numblocks.x: %d, numblocks.y: %d \n", numBlocks.x, numBlocks.y);
+
+    decrypt_kernel_ej3B<<<numBlocks, threadsPerBlock>>>(d_M, d_MH);
+	
 	/* Copiar los datos de salida a la CPU en h_message */
-	/*
 	cudaMemcpy(h_MH, d_MH, sizeMH, cudaMemcpyDeviceToHost);
 
-	printf("-----------MATRIZ ORIGINAL------------\n");
-	printMatrix(h_M, FILAS, COLUMNAS);
-	*/
-	int remainingRows = numBlocks.x * numBlocks.y;
-	cudaMemcpy(h_MH, d_MH, sizeMH, cudaMemcpyDeviceToHost);
-
-	threadsPerBlock.x = blockX;
-	threadsPerBlock.y = blockY;
 	numBlocks.x = (HISTOGRAM_LENGTH + blockX - 1) / blockX;
 	numBlocks.y = (remainingRows + blockY - 1) / blockY;
 
 	int sizeShared = blockX * blockY * sizeof(int);
-	int salto = 1;
-	int it = 0;		
+	long salto = 1;
 
 	while (remainingRows > 1) {
-		if (it == 1) {
-			salto = threadsPerBlock.y;
-		}
-		reduction<<<numBlocks, threadsPerBlock, sizeShared>>>(d_MH, remainingRows, HISTOGRAM_LENGTH, salto - 1);
 
-		salto = salto * salto;
+		reduction<<<numBlocks, threadsPerBlock, sizeShared>>>(d_MH, rowsMH, salto - 1);
+        cudaDeviceSynchronize();
+        CUDA_CHK(cudaGetLastError());
 
-		it ++;
+		salto = salto * blockY;
 
-		remainingRows = numBlocks.y;
+		remainingRows = (remainingRows + blockY - 1) / blockY;
 
-		numBlocks.y = (remainingRows + blockY - 1) / blockY;
+        numBlocks.y = remainingRows;
 	}
 
  	cudaMemcpy(h_MH, d_MH, sizeMH, cudaMemcpyDeviceToHost);
 
-    printf("-----------MATRIZ HISTOGRAMA LUEGO DEL REDUCE------------\n");
-	printMatrix(h_MH, remainingRows, HISTOGRAM_LENGTH);
+	printf("-----------MATRIZ HISTOGRAMA LUEGO DEL REDUCE------------\n");
+	printMatrix(h_MH, 1, HISTOGRAM_LENGTH);
 	printf("---------------------------------\n");
-	//begin loop
+
 
 	// libero la memoria en la CPU
 	free(h_M);
-	free(h_H);
 	free(h_MH);
 
 	// libero la memoria en la GPU
 	cudaFree(d_M);
-    cudaFree(d_H);
 	cudaFree(d_MH);
 
 	return 0;
