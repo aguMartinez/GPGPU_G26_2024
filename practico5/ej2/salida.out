@@ -1,0 +1,2 @@
+nvcc -O3 -w -m64 -std=c++11 -gencode=arch=compute_60,code=sm_60 -Xptxas -dlcm=cg  main.cu --keep-dir local -o biblios -I/clusteruy/home/gpgpu26/practico5/cub/cub -I/usr/local/cuda-12.1/bin/include     -D VALUE_TYPE=double
+/var/spool/slurm/d/job3715147/slurm_script: line 27: : No such file or directory

@@ -1,0 +1,152 @@
+16 16 
+[16,0] 1 
+[16,1] 2 
+[16,2] 1 
+[16,3] 2 
+[16,4] 1 
+[16,5] 2 
+[16,6] 1 
+[16,7] 2 
+[16,8] 1 
+[16,9] 2 
+[16,10] 1 
+[16,11] 2 
+[16,12] 1 
+[16,13] 2 
+[16,14] 1 
+[16,15] 2 
+[8,0] 1 
+[8,1] 2 
+[8,2] 1 
+[8,3] 4 
+[8,4] 1 
+[8,5] 2 
+[8,6] 1 
+[8,7] 4 
+[8,8] 1 
+[8,9] 2 
+[8,10] 1 
+[8,11] 4 
+[8,12] 1 
+[8,13] 2 
+[8,14] 1 
+[8,15] 4 
+[4,0] 1 
+[4,1] 2 
+[4,2] 1 
+[4,3] 4 
+[4,4] 1 
+[4,5] 2 
+[4,6] 1 
+[4,7] 8 
+[4,8] 1 
+[4,9] 2 
+[4,10] 1 
+[4,11] 4 
+[4,12] 1 
+[4,13] 2 
+[4,14] 1 
+[4,15] 8 
+[2,0] 1 
+[2,1] 2 
+[2,2] 1 
+[2,3] 4 
+[2,4] 1 
+[2,5] 2 
+[2,6] 1 
+[2,7] 8 
+[2,8] 1 
+[2,9] 2 
+[2,10] 1 
+[2,11] 4 
+[2,12] 1 
+[2,13] 2 
+[2,14] 1 
+[2,15] 16 
+[1,0] 1 
+[1,1] 2 
+[1,2] 1 
+[1,3] 4 
+[1,4] 1 
+[1,5] 2 
+[1,6] 1 
+[1,7] 8 
+[1,8] 1 
+[1,9] 2 
+[1,10] 1 
+[1,11] 4 
+[1,12] 1 
+[1,13] 2 
+[1,14] 1 
+[1,15] 16 
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Generating '/tmp/nsys-report-364b.qdstrm'
+[1/8] [0%                          ] nsys-report-a7a7.nsys-rep[1/8] [0%                          ] nsys-report-a7a7.nsys-rep[1/8] [==18%                       ] nsys-report-a7a7.nsys-rep[1/8] [====28%                     ] nsys-report-a7a7.nsys-rep[1/8] [=======39%                  ] nsys-report-a7a7.nsys-rep[1/8] [========40%                 ] nsys-report-a7a7.nsys-rep[1/8] [========41%                 ] nsys-report-a7a7.nsys-rep[1/8] [========42%                 ] nsys-report-a7a7.nsys-rep[1/8] [=========45%                ] nsys-report-a7a7.nsys-rep[1/8] [=========46%                ] nsys-report-a7a7.nsys-rep[1/8] [==========47%               ] nsys-report-a7a7.nsys-rep[1/8] [===========50%              ] nsys-report-a7a7.nsys-rep[1/8] [=============59%            ] nsys-report-a7a7.nsys-rep[1/8] [========================98% ] nsys-report-a7a7.nsys-rep[1/8] [========================100%] nsys-report-a7a7.nsys-rep[1/8] [========================100%] nsys-report-a7a7.nsys-rep
+[2/8] [0%                          ] nsys-report-2ebb.sqlite[2/8] [1%                          ] nsys-report-2ebb.sqlite[2/8] [2%                          ] nsys-report-2ebb.sqlite[2/8] [3%                          ] nsys-report-2ebb.sqlite[2/8] [4%                          ] nsys-report-2ebb.sqlite[2/8] [5%                          ] nsys-report-2ebb.sqlite[2/8] [6%                          ] nsys-report-2ebb.sqlite[2/8] [7%                          ] nsys-report-2ebb.sqlite[2/8] [8%                          ] nsys-report-2ebb.sqlite[2/8] [9%                          ] nsys-report-2ebb.sqlite[2/8] [10%                         ] nsys-report-2ebb.sqlite[2/8] [11%                         ] nsys-report-2ebb.sqlite[2/8] [12%                         ] nsys-report-2ebb.sqlite[2/8] [13%                         ] nsys-report-2ebb.sqlite[2/8] [14%                         ] nsys-report-2ebb.sqlite[2/8] [=15%                        ] nsys-report-2ebb.sqlite[2/8] [=16%                        ] nsys-report-2ebb.sqlite[2/8] [=17%                        ] nsys-report-2ebb.sqlite[2/8] [==18%                       ] nsys-report-2ebb.sqlite[2/8] [==19%                       ] nsys-report-2ebb.sqlite[2/8] [==20%                       ] nsys-report-2ebb.sqlite[2/8] [==21%                       ] nsys-report-2ebb.sqlite[2/8] [===22%                      ] nsys-report-2ebb.sqlite[2/8] [===23%                      ] nsys-report-2ebb.sqlite[2/8] [===24%                      ] nsys-report-2ebb.sqlite[2/8] [====25%                     ] nsys-report-2ebb.sqlite[2/8] [====26%                     ] nsys-report-2ebb.sqlite[2/8] [====27%                     ] nsys-report-2ebb.sqlite[2/8] [====28%                     ] nsys-report-2ebb.sqlite[2/8] [=====29%                    ] nsys-report-2ebb.sqlite[2/8] [=====30%                    ] nsys-report-2ebb.sqlite[2/8] [=====31%                    ] nsys-report-2ebb.sqlite[2/8] [=====32%                    ] nsys-report-2ebb.sqlite[2/8] [======33%                   ] nsys-report-2ebb.sqlite[2/8] [======34%                   ] nsys-report-2ebb.sqlite[2/8] [======35%                   ] nsys-report-2ebb.sqlite[2/8] [=======36%                  ] nsys-report-2ebb.sqlite[2/8] [=======37%                  ] nsys-report-2ebb.sqlite[2/8] [=======38%                  ] nsys-report-2ebb.sqlite[2/8] [=======39%                  ] nsys-report-2ebb.sqlite[2/8] [========40%                 ] nsys-report-2ebb.sqlite[2/8] [========41%                 ] nsys-report-2ebb.sqlite[2/8] [========42%                 ] nsys-report-2ebb.sqlite[2/8] [=========43%                ] nsys-report-2ebb.sqlite[2/8] [=========44%                ] nsys-report-2ebb.sqlite[2/8] [=========45%                ] nsys-report-2ebb.sqlite[2/8] [=========46%                ] nsys-report-2ebb.sqlite[2/8] [==========47%               ] nsys-report-2ebb.sqlite[2/8] [==========48%               ] nsys-report-2ebb.sqlite[2/8] [==========49%               ] nsys-report-2ebb.sqlite[2/8] [===========50%              ] nsys-report-2ebb.sqlite[2/8] [===========51%              ] nsys-report-2ebb.sqlite[2/8] [===========52%              ] nsys-report-2ebb.sqlite[2/8] [===========53%              ] nsys-report-2ebb.sqlite[2/8] [============54%             ] nsys-report-2ebb.sqlite[2/8] [============55%             ] nsys-report-2ebb.sqlite[2/8] [============56%             ] nsys-report-2ebb.sqlite[2/8] [============57%             ] nsys-report-2ebb.sqlite[2/8] [=============58%            ] nsys-report-2ebb.sqlite[2/8] [=============59%            ] nsys-report-2ebb.sqlite[2/8] [=============60%            ] nsys-report-2ebb.sqlite[2/8] [==============61%           ] nsys-report-2ebb.sqlite[2/8] [==============62%           ] nsys-report-2ebb.sqlite[2/8] [==============63%           ] nsys-report-2ebb.sqlite[2/8] [==============64%           ] nsys-report-2ebb.sqlite[2/8] [===============65%          ] nsys-report-2ebb.sqlite[2/8] [===============66%          ] nsys-report-2ebb.sqlite[2/8] [===============67%          ] nsys-report-2ebb.sqlite[2/8] [================68%         ] nsys-report-2ebb.sqlite[2/8] [================69%         ] nsys-report-2ebb.sqlite[2/8] [================70%         ] nsys-report-2ebb.sqlite[2/8] [================71%         ] nsys-report-2ebb.sqlite[2/8] [=================72%        ] nsys-report-2ebb.sqlite[2/8] [=================73%        ] nsys-report-2ebb.sqlite[2/8] [=================74%        ] nsys-report-2ebb.sqlite[2/8] [==================75%       ] nsys-report-2ebb.sqlite[2/8] [==================76%       ] nsys-report-2ebb.sqlite[2/8] [==================77%       ] nsys-report-2ebb.sqlite[2/8] [==================78%       ] nsys-report-2ebb.sqlite[2/8] [===================79%      ] nsys-report-2ebb.sqlite[2/8] [===================80%      ] nsys-report-2ebb.sqlite[2/8] [===================81%      ] nsys-report-2ebb.sqlite[2/8] [===================82%      ] nsys-report-2ebb.sqlite[2/8] [====================83%     ] nsys-report-2ebb.sqlite[2/8] [====================84%     ] nsys-report-2ebb.sqlite[2/8] [====================85%     ] nsys-report-2ebb.sqlite[2/8] [=====================86%    ] nsys-report-2ebb.sqlite[2/8] [=====================87%    ] nsys-report-2ebb.sqlite[2/8] [=====================88%    ] nsys-report-2ebb.sqlite[2/8] [=====================89%    ] nsys-report-2ebb.sqlite[2/8] [======================90%   ] nsys-report-2ebb.sqlite[2/8] [======================91%   ] nsys-report-2ebb.sqlite[2/8] [======================92%   ] nsys-report-2ebb.sqlite[2/8] [=======================93%  ] nsys-report-2ebb.sqlite[2/8] [=======================94%  ] nsys-report-2ebb.sqlite[2/8] [=======================95%  ] nsys-report-2ebb.sqlite[2/8] [=======================96%  ] nsys-report-2ebb.sqlite[2/8] [========================97% ] nsys-report-2ebb.sqlite[2/8] [========================98% ] nsys-report-2ebb.sqlite[2/8] [========================99% ] nsys-report-2ebb.sqlite[2/8] [========================100%] nsys-report-2ebb.sqlite[2/8] [========================100%] nsys-report-2ebb.sqlite
+[3/8] Executing 'nvtx_sum' stats report
+[4/8] Executing 'osrt_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)           Name         
+ --------  ---------------  ---------  -----------  -----------  --------  ----------  ------------  ---------------------
+     31.2      139,237,498         26  5,355,288.4      4,767.0     2,677  66,994,048  17,569,373.8  fclose               
+     22.4      100,184,015         12  8,348,667.9  1,295,797.0     5,689  45,061,555  15,040,749.8  poll                 
+     17.4       77,864,656        528    147,470.9     12,296.5       855  23,038,717   1,380,079.6  ioctl                
+     15.0       66,963,675         70    956,623.9        596.5       525  33,306,134   5,554,731.8  fcntl                
+     10.4       46,574,168         33  1,411,338.4      8,786.0     1,979  25,316,522   5,178,416.2  fopen                
+      2.0        8,718,743          5  1,743,748.6     15,836.0     1,153   8,299,109   3,668,559.6  fread                
+      0.5        2,238,852         43     52,066.3      5,347.0     3,585     947,940     172,243.8  mmap64               
+      0.4        1,830,398          4    457,599.5    341,537.5    98,757   1,048,566     427,331.8  pthread_create       
+      0.3        1,257,762         11    114,342.0     19,065.0     1,311   1,020,281     301,615.1  write                
+      0.2          894,840          1    894,840.0    894,840.0   894,840     894,840           0.0  pthread_mutex_lock   
+      0.1          382,832         62      6,174.7      6,096.5     1,526      17,888       2,773.9  open64               
+      0.1          259,125         22     11,778.4      6,261.5     2,123      73,597      16,897.6  mmap                 
+      0.0           54,640          4     13,660.0     12,937.0       698      28,068      14,416.1  fwrite               
+      0.0           50,995          6      8,499.2      6,600.0     4,658      14,094       4,360.0  open                 
+      0.0           50,615         15      3,374.3         52.0        30      19,147       5,980.0  fflush               
+      0.0           45,729         30      1,524.3         55.5        38      44,120       8,045.0  fgets                
+      0.0           40,835          2     20,417.5     20,417.5    15,444      25,391       7,033.6  socket               
+      0.0           30,866          6      5,144.3      3,315.5     2,916      12,337       3,727.0  munmap               
+      0.0           18,051         14      1,289.4        899.0       680       3,302         833.8  read                 
+      0.0           15,455          4      3,863.8      3,011.0     2,115       7,318       2,342.3  mprotect             
+      0.0            9,282          1      9,282.0      9,282.0     9,282       9,282           0.0  connect              
+      0.0            4,628          7        661.1        710.0       550         792          98.2  dup                  
+      0.0            4,540          1      4,540.0      4,540.0     4,540       4,540           0.0  pipe2                
+      0.0            3,001          1      3,001.0      3,001.0     3,001       3,001           0.0  bind                 
+      0.0            2,950         64         46.1         22.0        22         430          60.9  pthread_mutex_trylock
+      0.0            1,113          1      1,113.0      1,113.0     1,113       1,113           0.0  listen               
+
+[5/8] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)            Name         
+ --------  ---------------  ---------  -------------  -------------  -----------  -----------  ------------  ----------------------
+     77.2      431,918,966          1  431,918,966.0  431,918,966.0  431,918,966  431,918,966           0.0  cuLibraryLoadData     
+     22.2      123,934,867          2   61,967,433.5   61,967,433.5        4,011  123,930,856  87,629,512.5  cudaMalloc            
+      0.3        1,891,454          1    1,891,454.0    1,891,454.0    1,891,454    1,891,454           0.0  cudaLaunchKernel      
+      0.2        1,342,432          2      671,216.0      671,216.0      299,561    1,042,871     525,599.5  cudaMemcpy            
+      0.0          122,262          2       61,131.0       61,131.0       30,270       91,992      43,644.0  cudaFree              
+      0.0            3,886          1        3,886.0        3,886.0        3,886        3,886           0.0  cuModuleGetLoadingMode
+
+[6/8] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances  Avg (ns)   Med (ns)   Min (ns)  Max (ns)  StdDev (ns)                   Name                 
+ --------  ---------------  ---------  ---------  ---------  --------  --------  -----------  --------------------------------------
+    100.0          233,695          1  233,695.0  233,695.0   233,695   233,695          0.0  exclusiveScanKernel(int *, int *, int)
+
+[7/8] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)      Operation     
+ --------  ---------------  -----  --------  --------  --------  --------  -----------  ------------------
+     67.1            1,760      1   1,760.0   1,760.0     1,760     1,760          0.0  [CUDA memcpy DtoH]
+     32.9              864      1     864.0     864.0       864       864          0.0  [CUDA memcpy HtoD]
+
+[8/8] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)      Operation     
+ ----------  -----  --------  --------  --------  --------  -----------  ------------------
+      0.000      1     0.000     0.000     0.000     0.000        0.000  [CUDA memcpy DtoH]
+      0.000      1     0.000     0.000     0.000     0.000        0.000  [CUDA memcpy HtoD]
+
+Generated:
+    /tmp/nsys-report-a7a7.nsys-rep
+    /tmp/nsys-report-2ebb.sqlite
