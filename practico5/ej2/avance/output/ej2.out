@@ -1,0 +1,105 @@
+---------------------------------------------------------------------------------------------
+PRECISION = 64-bit Double Precision
+-------------- A_matrix.mtx --------------
+input matrix is symmetric = false
+input matrix A: ( 18, 18 ) nnz = 31
+A's unit-lower triangular L: ( 18, 18 ) nnz = 31
+---------------------------------------------------------------------------------------------
+32
+Number of warps: 6
+Iorder[0] = 0
+Iorder[1] = 5
+Iorder[2] = 6
+Iorder[3] = 7
+Iorder[4] = 8
+Iorder[5] = 9
+Iorder[6] = 10
+Iorder[7] = 11
+Iorder[8] = 12
+Iorder[9] = 13
+Iorder[10] = 14
+Iorder[11] = 16
+Iorder[12] = 1
+Iorder[13] = 2
+Iorder[14] = 15
+Iorder[15] = 3
+Iorder[16] = 17
+Iorder[17] = 4
+Bye!
+Generating '/tmp/nsys-report-4f7e.qdstrm'
+[1/8] [0%                          ] nsys-report-47ea.nsys-rep[1/8] [0%                          ] nsys-report-47ea.nsys-rep[1/8] [=17%                        ] nsys-report-47ea.nsys-rep[1/8] [====26%                     ] nsys-report-47ea.nsys-rep[1/8] [=======36%                  ] nsys-report-47ea.nsys-rep[1/8] [=======37%                  ] nsys-report-47ea.nsys-rep[1/8] [=======38%                  ] nsys-report-47ea.nsys-rep[1/8] [========41%                 ] nsys-report-47ea.nsys-rep[1/8] [========42%                 ] nsys-report-47ea.nsys-rep[1/8] [=========43%                ] nsys-report-47ea.nsys-rep[1/8] [=========45%                ] nsys-report-47ea.nsys-rep[1/8] [=========46%                ] nsys-report-47ea.nsys-rep[1/8] [============56%             ] nsys-report-47ea.nsys-rep[1/8] [==================75%       ] nsys-report-47ea.nsys-rep[1/8] [==================76%       ] nsys-report-47ea.nsys-rep[1/8] [==================78%       ] nsys-report-47ea.nsys-rep[1/8] [====================83%     ] nsys-report-47ea.nsys-rep[1/8] [======================91%   ] nsys-report-47ea.nsys-rep[1/8] [========================97% ] nsys-report-47ea.nsys-rep[1/8] [========================100%] nsys-report-47ea.nsys-rep[1/8] [========================100%] nsys-report-47ea.nsys-rep
+[2/8] [0%                          ] nsys-report-eaaf.sqlite[2/8] [1%                          ] nsys-report-eaaf.sqlite[2/8] [2%                          ] nsys-report-eaaf.sqlite[2/8] [3%                          ] nsys-report-eaaf.sqlite[2/8] [4%                          ] nsys-report-eaaf.sqlite[2/8] [5%                          ] nsys-report-eaaf.sqlite[2/8] [6%                          ] nsys-report-eaaf.sqlite[2/8] [7%                          ] nsys-report-eaaf.sqlite[2/8] [8%                          ] nsys-report-eaaf.sqlite[2/8] [9%                          ] nsys-report-eaaf.sqlite[2/8] [10%                         ] nsys-report-eaaf.sqlite[2/8] [11%                         ] nsys-report-eaaf.sqlite[2/8] [12%                         ] nsys-report-eaaf.sqlite[2/8] [13%                         ] nsys-report-eaaf.sqlite[2/8] [14%                         ] nsys-report-eaaf.sqlite[2/8] [=15%                        ] nsys-report-eaaf.sqlite[2/8] [=16%                        ] nsys-report-eaaf.sqlite[2/8] [=17%                        ] nsys-report-eaaf.sqlite[2/8] [==18%                       ] nsys-report-eaaf.sqlite[2/8] [==19%                       ] nsys-report-eaaf.sqlite[2/8] [==20%                       ] nsys-report-eaaf.sqlite[2/8] [==21%                       ] nsys-report-eaaf.sqlite[2/8] [===22%                      ] nsys-report-eaaf.sqlite[2/8] [===23%                      ] nsys-report-eaaf.sqlite[2/8] [===24%                      ] nsys-report-eaaf.sqlite[2/8] [====25%                     ] nsys-report-eaaf.sqlite[2/8] [====26%                     ] nsys-report-eaaf.sqlite[2/8] [====27%                     ] nsys-report-eaaf.sqlite[2/8] [====28%                     ] nsys-report-eaaf.sqlite[2/8] [=====29%                    ] nsys-report-eaaf.sqlite[2/8] [=====30%                    ] nsys-report-eaaf.sqlite[2/8] [=====31%                    ] nsys-report-eaaf.sqlite[2/8] [=====32%                    ] nsys-report-eaaf.sqlite[2/8] [======33%                   ] nsys-report-eaaf.sqlite[2/8] [======34%                   ] nsys-report-eaaf.sqlite[2/8] [======35%                   ] nsys-report-eaaf.sqlite[2/8] [=======36%                  ] nsys-report-eaaf.sqlite[2/8] [=======37%                  ] nsys-report-eaaf.sqlite[2/8] [=======38%                  ] nsys-report-eaaf.sqlite[2/8] [=======39%                  ] nsys-report-eaaf.sqlite[2/8] [========40%                 ] nsys-report-eaaf.sqlite[2/8] [========41%                 ] nsys-report-eaaf.sqlite[2/8] [========42%                 ] nsys-report-eaaf.sqlite[2/8] [=========43%                ] nsys-report-eaaf.sqlite[2/8] [=========44%                ] nsys-report-eaaf.sqlite[2/8] [=========45%                ] nsys-report-eaaf.sqlite[2/8] [=========46%                ] nsys-report-eaaf.sqlite[2/8] [==========47%               ] nsys-report-eaaf.sqlite[2/8] [==========48%               ] nsys-report-eaaf.sqlite[2/8] [==========49%               ] nsys-report-eaaf.sqlite[2/8] [===========50%              ] nsys-report-eaaf.sqlite[2/8] [===========51%              ] nsys-report-eaaf.sqlite[2/8] [===========52%              ] nsys-report-eaaf.sqlite[2/8] [===========53%              ] nsys-report-eaaf.sqlite[2/8] [============54%             ] nsys-report-eaaf.sqlite[2/8] [============55%             ] nsys-report-eaaf.sqlite[2/8] [============56%             ] nsys-report-eaaf.sqlite[2/8] [============57%             ] nsys-report-eaaf.sqlite[2/8] [=============58%            ] nsys-report-eaaf.sqlite[2/8] [=============59%            ] nsys-report-eaaf.sqlite[2/8] [=============60%            ] nsys-report-eaaf.sqlite[2/8] [==============61%           ] nsys-report-eaaf.sqlite[2/8] [==============62%           ] nsys-report-eaaf.sqlite[2/8] [==============63%           ] nsys-report-eaaf.sqlite[2/8] [==============64%           ] nsys-report-eaaf.sqlite[2/8] [===============65%          ] nsys-report-eaaf.sqlite[2/8] [===============66%          ] nsys-report-eaaf.sqlite[2/8] [===============67%          ] nsys-report-eaaf.sqlite[2/8] [================68%         ] nsys-report-eaaf.sqlite[2/8] [================69%         ] nsys-report-eaaf.sqlite[2/8] [================70%         ] nsys-report-eaaf.sqlite[2/8] [================71%         ] nsys-report-eaaf.sqlite[2/8] [=================72%        ] nsys-report-eaaf.sqlite[2/8] [=================73%        ] nsys-report-eaaf.sqlite[2/8] [=================74%        ] nsys-report-eaaf.sqlite[2/8] [==================75%       ] nsys-report-eaaf.sqlite[2/8] [==================76%       ] nsys-report-eaaf.sqlite[2/8] [==================77%       ] nsys-report-eaaf.sqlite[2/8] [==================78%       ] nsys-report-eaaf.sqlite[2/8] [===================79%      ] nsys-report-eaaf.sqlite[2/8] [===================80%      ] nsys-report-eaaf.sqlite[2/8] [===================81%      ] nsys-report-eaaf.sqlite[2/8] [===================82%      ] nsys-report-eaaf.sqlite[2/8] [====================83%     ] nsys-report-eaaf.sqlite[2/8] [====================84%     ] nsys-report-eaaf.sqlite[2/8] [====================85%     ] nsys-report-eaaf.sqlite[2/8] [=====================86%    ] nsys-report-eaaf.sqlite[2/8] [=====================87%    ] nsys-report-eaaf.sqlite[2/8] [=====================88%    ] nsys-report-eaaf.sqlite[2/8] [=====================89%    ] nsys-report-eaaf.sqlite[2/8] [======================90%   ] nsys-report-eaaf.sqlite[2/8] [======================91%   ] nsys-report-eaaf.sqlite[2/8] [======================92%   ] nsys-report-eaaf.sqlite[2/8] [=======================93%  ] nsys-report-eaaf.sqlite[2/8] [=======================94%  ] nsys-report-eaaf.sqlite[2/8] [=======================95%  ] nsys-report-eaaf.sqlite[2/8] [=======================96%  ] nsys-report-eaaf.sqlite[2/8] [========================97% ] nsys-report-eaaf.sqlite[2/8] [========================98% ] nsys-report-eaaf.sqlite[2/8] [========================99% ] nsys-report-eaaf.sqlite[2/8] [========================100%] nsys-report-eaaf.sqlite[2/8] [========================100%] nsys-report-eaaf.sqlite
+[3/8] Executing 'nvtx_sum' stats report
+[4/8] Executing 'osrt_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls    Avg (ns)     Med (ns)    Min (ns)   Max (ns)    StdDev (ns)           Name         
+ --------  ---------------  ---------  ------------  -----------  --------  -----------  ------------  ---------------------
+     68.1      203,726,142         13  15,671,241.7  1,657,856.0     3,761  100,113,671  29,487,939.8  poll                 
+     24.8       74,338,236        518     143,510.1     11,517.5       892   23,276,748   1,335,796.0  ioctl                
+      3.3        9,850,520         29     339,673.1      9,613.0     2,180    9,508,022   1,763,349.4  fopen                
+      1.5        4,402,659         23     191,420.0      5,711.0     3,109    4,231,837     880,793.1  fclose               
+      0.7        2,111,118         43      49,095.8      5,298.0     3,333      892,654     165,107.2  mmap64               
+      0.7        2,084,953          4     521,238.3    408,829.0    96,421    1,170,874     505,996.4  pthread_create       
+      0.4        1,242,901         11     112,991.0     20,467.0     2,954    1,081,394     321,275.3  write                
+      0.1          440,228         60       7,337.1      6,125.5     2,636       25,954       4,408.2  open64               
+      0.1          369,870         52       7,112.9         71.5        45      314,631      44,059.1  fgets                
+      0.1          328,559         22      14,934.5      6,207.0     2,322      124,022      26,691.9  mmap                 
+      0.1          151,639          2      75,819.5     75,819.5    24,251      127,388      72,928.9  socket               
+      0.0           72,537         48       1,511.2         42.0        33       68,386       9,861.3  fflush               
+      0.0           61,964          6      10,327.3      8,858.5     4,716       17,136       5,327.8  open                 
+      0.0           52,653         66         797.8        613.5       567        2,473         392.6  fcntl                
+      0.0           31,662          6       5,277.0      4,525.5     2,502        8,819       2,479.1  munmap               
+      0.0           21,561         14       1,540.1        961.5       708        4,642       1,176.5  read                 
+      0.0           18,625          4       4,656.3      4,618.0     2,167        7,222       2,395.2  mprotect             
+      0.0           14,357          1      14,357.0     14,357.0    14,357       14,357           0.0  fread                
+      0.0           10,864          1      10,864.0     10,864.0    10,864       10,864           0.0  connect              
+      0.0            5,716         64          89.3        101.0        24          412          74.5  pthread_mutex_trylock
+      0.0            5,386          7         769.4        759.0       572        1,233         231.5  dup                  
+      0.0            4,839          1       4,839.0      4,839.0     4,839        4,839           0.0  pipe2                
+      0.0            4,420          1       4,420.0      4,420.0     4,420        4,420           0.0  bind                 
+      0.0            2,404          1       2,404.0      2,404.0     2,404        2,404           0.0  listen               
+
+[5/8] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls    Avg (ns)    Med (ns)   Min (ns)   Max (ns)    StdDev (ns)            Name         
+ --------  ---------------  ---------  ------------  ---------  --------  -----------  ------------  ----------------------
+     98.3      208,355,164         10  20,835,516.4    4,290.0     3,071  208,315,508  65,873,754.4  cudaMalloc            
+      0.8        1,672,957          6     278,826.2    6,815.5     4,938    1,637,014     665,378.9  cudaLaunchKernel      
+      0.5        1,038,444          5     207,688.8   13,569.0     6,081      864,876     372,204.3  cudaMemcpy            
+      0.4          785,029          1     785,029.0  785,029.0   785,029      785,029           0.0  cuLibraryLoadData     
+      0.0           38,978          8       4,872.3    4,411.0     1,918        9,376       2,586.3  cudaStreamSynchronize 
+      0.0           37,557          4       9,389.3    8,490.0     3,862       16,715       5,882.8  cudaMemcpyAsync       
+      0.0           36,577          7       5,225.3    4,466.0     3,514        9,956       2,231.9  cudaFree              
+      0.0           17,043          2       8,521.5    8,521.5     3,298       13,745       7,387.1  cudaMemset            
+      0.0            6,561          1       6,561.0    6,561.0     6,561        6,561           0.0  cuModuleGetLoadingMode
+
+[6/8] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)                                                  Name                                                
+ --------  ---------------  ---------  --------  --------  --------  --------  -----------  ----------------------------------------------------------------------------------------------------
+     76.5           52,544          1  52,544.0  52,544.0    52,544    52,544          0.0  kernel_analysis_L(const int *, const int *, volatile int *, int, unsigned int *)                    
+      8.4            5,760          1   5,760.0   5,760.0     5,760     5,760          0.0  void cub::DeviceScanKernel<cub::DeviceScanPolicy<int>::Policy600, thrust::detail::normal_iterator<t…
+      6.4            4,384          1   4,384.0   4,384.0     4,384     4,384          0.0  void cub::DeviceReduceSingleTileKernel<cub::DeviceReducePolicy<unsigned int, int, thrust::maximum<u…
+      3.4            2,336          1   2,336.0   2,336.0     2,336     2,336          0.0  void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__parallel_for::ParallelForAgent<thrus…
+      2.8            1,921          1   1,921.0   1,921.0     1,921     1,921          0.0  void thrust::cuda_cub::core::_kernel_agent<thrust::cuda_cub::__parallel_for::ParallelForAgent<thrus…
+      2.5            1,727          1   1,727.0   1,727.0     1,727     1,727          0.0  void cub::DeviceScanInitKernel<cub::ScanTileState<int, (bool)1>>(T1, int)                           
+
+[7/8] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)      Operation     
+ --------  ---------------  -----  --------  --------  --------  --------  -----------  ------------------
+     54.1            5,504      4   1,376.0   1,312.0     1,056     1,824        384.0  [CUDA memcpy DtoH]
+     28.3            2,880      5     576.0     512.0       480       896        179.6  [CUDA memcpy HtoD]
+     17.6            1,791      2     895.5     895.5       863       928         46.0  [CUDA memset]     
+
+[8/8] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)      Operation     
+ ----------  -----  --------  --------  --------  --------  -----------  ------------------
+      0.001      5     0.000     0.000     0.000     0.000        0.000  [CUDA memcpy HtoD]
+      0.000      4     0.000     0.000     0.000     0.000        0.000  [CUDA memcpy DtoH]
+      0.000      2     0.000     0.000     0.000     0.000        0.000  [CUDA memset]     
+
+Generated:
+    /tmp/nsys-report-47ea.nsys-rep
+    /tmp/nsys-report-eaaf.sqlite

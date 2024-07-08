@@ -1,0 +1,7 @@
+Compilando el archivo...
+nvcc -O3 -w -m64 -std=c++11 -gencode=arch=compute_60,code=sm_60 -Xptxas -dlcm=cg  main.cu --keep-dir local -o main -I/usr/local/cuda-12.1/bin/include     -D VALUE_TYPE=double
+Failed to create '/clusteruy/home/gpgpu26/practico5/ej2/output/ej2.nsys-rep': File exists.
+Use `--force-overwrite true` to overwrite existing files.
+Failed to create '/clusteruy/home/gpgpu26/practico5/ej2/output/ej2.sqlite': File exists.
+Use `--force-overwrite true` to overwrite existing files.
+SKIPPED: /tmp/nsys-report-eaaf.sqlite does not contain NV Tools Extension (NVTX) data.
