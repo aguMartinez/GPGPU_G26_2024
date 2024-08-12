@@ -1,0 +1,53 @@
+%%MatrixMarket matrix coordinate integer general
+%-------------------------------------------------------------------------------
+% UF Sparse Matrix Collection, Tim Davis
+% http://www.cise.ufl.edu/research/sparse/matrices/Pajek/Ragusa16
+% name: Pajek/Ragusa16
+% [Pajek network: Ragusa set]
+% id: 1515
+% date: 2006
+% author: V. Batagelj
+% ed: V. Batagelj
+% fields: name title A id kind notes aux date author ed
+% aux: nodename coord
+% kind: directed weighted graph
+%-------------------------------------------------------------------------------
+% notes:
+% ------------------------------------------------------------------------------
+% Pajek network converted to sparse adjacency matrix for inclusion in UF sparse 
+% matrix collection, Tim Davis.  For Pajek datasets, See V. Batagelj & A. Mrvar,
+% http://vlado.fmf.uni-lj.si/pub/networks/data/.                                
+% ------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+18 18 31
+1 1 1
+2 1 1
+2 2 1
+3 1 1
+3 3 1
+4 2 1
+4 3 1
+4 4 1
+5 1 1
+5 2 1
+5 3 1
+5 4 1
+5 5 1
+6 6 1
+7 7 1
+8 8 1
+9 9 1
+10 10 1
+11 11 1 
+12 12 1
+13 13 1
+14 14 1
+15 15 1
+16 2 1
+16 16 1
+17 17 1
+18 1 1
+18 2 1
+18 3 1
+18 17 1
+18 18 1

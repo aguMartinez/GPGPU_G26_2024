@@ -1,0 +1,7 @@
+Compilando el archivo ej1.cu...
+Failed to create '/clusteruy/home/gpgpu26/practico5/output/ej1_profile.nsys-rep': File exists.
+Use `--force-overwrite true` to overwrite existing files.
+Failed to create '/clusteruy/home/gpgpu26/practico5/output/ej1_profile.sqlite': File exists.
+Use `--force-overwrite true` to overwrite existing files.
+SKIPPED: /tmp/nsys-report-d97a.sqlite does not contain NV Tools Extension (NVTX) data.
+SKIPPED: /tmp/nsys-report-d97a.sqlite does not contain CUDA kernel data.

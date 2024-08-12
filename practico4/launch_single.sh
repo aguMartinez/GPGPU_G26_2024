@@ -12,7 +12,7 @@
 
 #SBATCH --gres=gpu:p100:1
 #SBATCH --mail-type=ALL
-# # SBATCH --mail-user=valentinaalaniz2@gmail.com
+# # SBATCH --mail-user=amartinez@gmail.com
 #SBATCH -o salida.out
 
 export PATH=$PATH:/usr/local/cuda-12.1/bin
