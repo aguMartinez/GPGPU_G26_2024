@@ -1,0 +1,9 @@
+Compilando el archivo...
+nvcc -O3 -w -m64 -std=c++11 -Xcompiler "-std=c++11" -gencode=arch=compute_60,code=sm_60 -Xptxas -dlcm=cg main.cpp blur.cu -o blur -I/usr/local/cuda-12.1/include -L/usr/local/cuda-12.1/lib -lcudart -lcuda -lcusparse -lnvidia-ml -lm -lpthread -lX11 -lnvToolsExt -D VALUE_TYPE=double
+blur.cu:8:21: fatal error: filters.h: No such file or directory
+ #include "filters.h"
+                     ^
+compilation terminated.
+make: *** [blur] Error 1
+Ejecutando el programa compilado...
+No such file or directory: ./blur
