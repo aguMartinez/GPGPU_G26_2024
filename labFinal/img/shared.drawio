@@ -1,0 +1,34 @@
+<mxfile host="Electron" modified="2024-08-20T04:36:40.363Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="Z0cJUG0N8S8avEHsLS7w" version="21.2.8" type="device">
+  <diagram name="Página-1" id="vB377YXY-lcGSomo-qAu">
+    <mxGraphModel dx="593" dy="683" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4aciwFTSvfpJx7UynZPp-1" value="copia de d_input" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="4aciwFTSvfpJx7UynZPp-2" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4aciwFTSvfpJx7UynZPp-3" value="w0" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4aciwFTSvfpJx7UynZPp-4" value="w1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4aciwFTSvfpJx7UynZPp-5" value="w2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4aciwFTSvfpJx7UynZPp-6" value="..." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4aciwFTSvfpJx7UynZPp-7" value="wn" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="4aciwFTSvfpJx7UynZPp-8" value="copia de d_input" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=0" vertex="1" parent="1">
+          <mxGeometry x="280" y="40" width="160" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
