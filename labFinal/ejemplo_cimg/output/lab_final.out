@@ -1,212 +1,0 @@
-Entré
-Ventana original para el píxel (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Ventana ordenada para el píxel (1,0) en shared:
-0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 0, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 1, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 2, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 3, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 4, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 5, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 6, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 7, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 8, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 9, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 10, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 11, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 12, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 13, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 14, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 15, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 16, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 50.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 17, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 18, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 0.000000 90.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 19, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 20, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 90.000000 90.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 21, thid: 1, output_index: 1, val: 0.000000
-e[1]: 1.000000, f[1]: 1.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 22, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 90.000000 90.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 23, thid: 1, output_index: 1, val: 0.000000
-e[1]: 1.000000, f[1]: 1.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 24, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 90.000000 90.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 25, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 26, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 90.000000 1.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 27, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 28, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 90.000000 1.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 29, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Bit: 30, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana original para el píxel SPIT (1,0):
-30.000000 0.000000 0.000000 90.000000 1.000000 5.000000 60.000000 70.000000 0.000000 
-Bit: 31, thid: 1, output_index: 2, val: 0.000000
-e[1]: 1.000000, f[1]: 2.000000
-Ventana ordenada para el píxel (1,0) en window:
-0.000000 0.000000 0.000000 10.000000 200.000000 30.000000 50.000000 5.000000 60.000000 
-Ventana ordenada para el píxel (1,0) en shared:
-0.000000 30.000000 0.000000 0.000000 10.000000 200.000000 0.000000 50.000000 5.000000 Salida del filtro de mediana:
-10.000000 200.000000 30.000000 40.000000 
-50.000000 5.000000 60.000000 70.000000 
-80.000000 90.000000 1.000000 100.000000 
-110.000000 120.000000 130.000000 140.000000 
-Filtro mediana GPU 3 terminado
-Generating '/tmp/nsys-report-14b5.qdstrm'
-[1/8] [0%                          ] lab_final.nsys-rep[1/8] [0%                          ] lab_final.nsys-rep[1/8] [===22%                      ] lab_final.nsys-rep[1/8] [===23%                      ] lab_final.nsys-rep[1/8] [=====32%                    ] lab_final.nsys-rep[1/8] [========41%                 ] lab_final.nsys-rep[1/8] [========42%                 ] lab_final.nsys-rep[1/8] [=========43%                ] lab_final.nsys-rep[1/8] [=========44%                ] lab_final.nsys-rep[1/8] [===========51%              ] lab_final.nsys-rep[1/8] [===========52%              ] lab_final.nsys-rep[1/8] [===========53%              ] lab_final.nsys-rep[1/8] [============54%             ] lab_final.nsys-rep[1/8] [===================79%      ] lab_final.nsys-rep[1/8] [===================80%      ] lab_final.nsys-rep[1/8] [====================83%     ] lab_final.nsys-rep[1/8] [=====================86%    ] lab_final.nsys-rep[1/8] [=====================88%    ] lab_final.nsys-rep[1/8] [======================90%   ] lab_final.nsys-rep[1/8] [========================98% ] lab_final.nsys-rep[1/8] [========================100%] lab_final.nsys-rep[1/8] [========================100%] lab_final.nsys-rep
-[2/8] [0%                          ] lab_final.sqlite[2/8] [1%                          ] lab_final.sqlite[2/8] [2%                          ] lab_final.sqlite[2/8] [3%                          ] lab_final.sqlite[2/8] [4%                          ] lab_final.sqlite[2/8] [5%                          ] lab_final.sqlite[2/8] [6%                          ] lab_final.sqlite[2/8] [7%                          ] lab_final.sqlite[2/8] [8%                          ] lab_final.sqlite[2/8] [9%                          ] lab_final.sqlite[2/8] [10%                         ] lab_final.sqlite[2/8] [11%                         ] lab_final.sqlite[2/8] [12%                         ] lab_final.sqlite[2/8] [13%                         ] lab_final.sqlite[2/8] [14%                         ] lab_final.sqlite[2/8] [=15%                        ] lab_final.sqlite[2/8] [=16%                        ] lab_final.sqlite[2/8] [=17%                        ] lab_final.sqlite[2/8] [==18%                       ] lab_final.sqlite[2/8] [==19%                       ] lab_final.sqlite[2/8] [==20%                       ] lab_final.sqlite[2/8] [==21%                       ] lab_final.sqlite[2/8] [===22%                      ] lab_final.sqlite[2/8] [===23%                      ] lab_final.sqlite[2/8] [===24%                      ] lab_final.sqlite[2/8] [====25%                     ] lab_final.sqlite[2/8] [====26%                     ] lab_final.sqlite[2/8] [====27%                     ] lab_final.sqlite[2/8] [====28%                     ] lab_final.sqlite[2/8] [=====29%                    ] lab_final.sqlite[2/8] [=====30%                    ] lab_final.sqlite[2/8] [=====31%                    ] lab_final.sqlite[2/8] [=====32%                    ] lab_final.sqlite[2/8] [======33%                   ] lab_final.sqlite[2/8] [======34%                   ] lab_final.sqlite[2/8] [======35%                   ] lab_final.sqlite[2/8] [=======36%                  ] lab_final.sqlite[2/8] [=======37%                  ] lab_final.sqlite[2/8] [=======38%                  ] lab_final.sqlite[2/8] [=======39%                  ] lab_final.sqlite[2/8] [========40%                 ] lab_final.sqlite[2/8] [========41%                 ] lab_final.sqlite[2/8] [========42%                 ] lab_final.sqlite[2/8] [=========43%                ] lab_final.sqlite[2/8] [=========44%                ] lab_final.sqlite[2/8] [=========45%                ] lab_final.sqlite[2/8] [=========46%                ] lab_final.sqlite[2/8] [==========47%               ] lab_final.sqlite[2/8] [==========48%               ] lab_final.sqlite[2/8] [==========49%               ] lab_final.sqlite[2/8] [===========50%              ] lab_final.sqlite[2/8] [===========51%              ] lab_final.sqlite[2/8] [===========52%              ] lab_final.sqlite[2/8] [===========53%              ] lab_final.sqlite[2/8] [============54%             ] lab_final.sqlite[2/8] [============55%             ] lab_final.sqlite[2/8] [============56%             ] lab_final.sqlite[2/8] [============57%             ] lab_final.sqlite[2/8] [=============58%            ] lab_final.sqlite[2/8] [=============59%            ] lab_final.sqlite[2/8] [=============60%            ] lab_final.sqlite[2/8] [==============61%           ] lab_final.sqlite[2/8] [==============62%           ] lab_final.sqlite[2/8] [==============63%           ] lab_final.sqlite[2/8] [==============64%           ] lab_final.sqlite[2/8] [===============65%          ] lab_final.sqlite[2/8] [===============66%          ] lab_final.sqlite[2/8] [===============67%          ] lab_final.sqlite[2/8] [================68%         ] lab_final.sqlite[2/8] [================69%         ] lab_final.sqlite[2/8] [================70%         ] lab_final.sqlite[2/8] [================71%         ] lab_final.sqlite[2/8] [=================72%        ] lab_final.sqlite[2/8] [=================73%        ] lab_final.sqlite[2/8] [=================74%        ] lab_final.sqlite[2/8] [==================75%       ] lab_final.sqlite[2/8] [==================76%       ] lab_final.sqlite[2/8] [==================77%       ] lab_final.sqlite[2/8] [==================78%       ] lab_final.sqlite[2/8] [===================79%      ] lab_final.sqlite[2/8] [===================80%      ] lab_final.sqlite[2/8] [===================81%      ] lab_final.sqlite[2/8] [===================82%      ] lab_final.sqlite[2/8] [====================83%     ] lab_final.sqlite[2/8] [====================84%     ] lab_final.sqlite[2/8] [====================85%     ] lab_final.sqlite[2/8] [=====================86%    ] lab_final.sqlite[2/8] [=====================87%    ] lab_final.sqlite[2/8] [=====================88%    ] lab_final.sqlite[2/8] [=====================89%    ] lab_final.sqlite[2/8] [======================90%   ] lab_final.sqlite[2/8] [======================91%   ] lab_final.sqlite[2/8] [======================92%   ] lab_final.sqlite[2/8] [=======================93%  ] lab_final.sqlite[2/8] [=======================94%  ] lab_final.sqlite[2/8] [=======================95%  ] lab_final.sqlite[2/8] [=======================96%  ] lab_final.sqlite[2/8] [========================97% ] lab_final.sqlite[2/8] [========================98% ] lab_final.sqlite[2/8] [========================99% ] lab_final.sqlite[2/8] [========================100%] lab_final.sqlite[2/8] [========================100%] lab_final.sqlite
-[3/8] Executing 'nvtx_sum' stats report
-[4/8] Executing 'osrt_sum' stats report
-
- Time (%)  Total Time (ns)  Num Calls    Avg (ns)     Med (ns)    Min (ns)   Max (ns)    StdDev (ns)        Name     
- --------  ---------------  ---------  ------------  -----------  --------  -----------  ------------  --------------
-     59.3      205,360,746         13  15,796,980.5  2,276,176.0     1,737  100,117,993  28,864,443.4  poll          
-     30.8      106,709,998        529     201,720.2     12,885.0       943   24,119,892   1,410,658.2  ioctl         
-      6.4       22,272,316         32     696,009.9     10,465.5     2,242   21,044,204   3,716,531.0  fopen         
-      1.3        4,631,896         26     178,149.8      5,875.0     3,395    4,276,241     836,825.6  fclose        
-      0.7        2,348,834         43      54,624.0      7,052.0     4,912    1,012,504     180,795.3  mmap64        
-      0.7        2,336,344          4     584,086.0    496,346.5    85,732    1,257,919     489,192.9  pthread_create
-      0.4        1,369,097         11     124,463.4     28,911.0     1,133    1,159,307     343,426.7  write         
-      0.1          499,133         64       7,799.0      6,995.0     1,860       23,157       3,977.6  open64        
-      0.1          340,041         22      15,456.4      3,144.0     1,867      108,489      25,912.2  mmap          
-      0.1          197,196          2      98,598.0     98,598.0    53,836      143,360      63,303.0  socket        
-      0.0           61,444          6      10,240.7      7,797.0     5,490       18,240       5,524.1  open          
-      0.0           56,983         30       1,899.4         69.5        48       54,919      10,013.8  fgets         
-      0.0           55,622         22       2,528.3         80.5        39       25,317       7,319.8  fflush        
-      0.0           53,579         66         811.8        798.0       643        1,300         127.0  fcntl         
-      0.0           27,064          6       4,510.7      3,644.5     2,605        9,550       2,606.7  munmap        
-      0.0           21,574         14       1,541.0      1,419.0       809        3,954         901.6  read          
-      0.0           13,389          1      13,389.0     13,389.0    13,389       13,389           0.0  fread         
-      0.0           11,650          4       2,912.5      2,793.0     2,404        3,660         564.9  mprotect      
-      0.0           11,483          1      11,483.0     11,483.0    11,483       11,483           0.0  connect       
-      0.0            6,049          7         864.1        859.0       704        1,195         168.6  dup           
-      0.0            5,066          1       5,066.0      5,066.0     5,066        5,066           0.0  pipe2         
-      0.0            2,284          1       2,284.0      2,284.0     2,284        2,284           0.0  bind          
-      0.0              956          1         956.0        956.0       956          956           0.0  listen        
-      0.0              456          1         456.0        456.0       456          456           0.0  fwrite        
-      0.0              299          1         299.0        299.0       299          299           0.0  fgetc         
-
-[5/8] Executing 'cuda_api_sum' stats report
-
- Time (%)  Total Time (ns)  Num Calls    Avg (ns)     Med (ns)    Min (ns)   Max (ns)     StdDev (ns)            Name         
- --------  ---------------  ---------  ------------  -----------  --------  -----------  -------------  ----------------------
-     89.4      228,155,582          3  76,051,860.7      7,107.0     4,925  228,143,550  131,715,266.7  cudaMalloc            
-      7.4       18,886,862          2   9,443,431.0  9,443,431.0    15,006   18,871,856   13,333,806.5  cudaDeviceSynchronize 
-      2.8        7,099,604          2   3,549,802.0  3,549,802.0   257,319    6,842,285    4,656,274.1  cudaLaunchKernel      
-      0.2          421,217          1     421,217.0    421,217.0   421,217      421,217            0.0  cuLibraryLoadData     
-      0.1          378,394          2     189,197.0    189,197.0    51,124      327,270      195,264.7  cudaMemcpy            
-      0.1          207,133          3      69,044.3     44,638.0     6,700      155,795       77,486.0  cudaFree              
-      0.0            2,968          1       2,968.0      2,968.0     2,968        2,968            0.0  cuModuleGetLoadingMode
-
-[6/8] Executing 'cuda_gpu_kern_sum' stats report
-
- Time (%)  Total Time (ns)  Instances    Avg (ns)      Med (ns)     Min (ns)    Max (ns)   StdDev (ns)                                  Name                                 
- --------  ---------------  ---------  ------------  ------------  ----------  ----------  -----------  ---------------------------------------------------------------------
-    100.0       18,481,611          1  18,481,611.0  18,481,611.0  18,481,611  18,481,611          0.0  ordenarYCalcularMedianaKernel(float *, float *, int, int, int, float)
-      0.0            7,456          1       7,456.0       7,456.0       7,456       7,456          0.0  cargarYExtraerVentanaKernel(float *, float *, int, int, int)         
-
-[7/8] Executing 'cuda_gpu_mem_time_sum' stats report
-
- Time (%)  Total Time (ns)  Count  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)      Operation     
- --------  ---------------  -----  --------  --------  --------  --------  -----------  ------------------
-     64.2            1,664      1   1,664.0   1,664.0     1,664     1,664          0.0  [CUDA memcpy DtoH]
-     35.8              928      1     928.0     928.0       928       928          0.0  [CUDA memcpy HtoD]
-
-[8/8] Executing 'cuda_gpu_mem_size_sum' stats report
-
- Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)      Operation     
- ----------  -----  --------  --------  --------  --------  -----------  ------------------
-      0.000      1     0.000     0.000     0.000     0.000        0.000  [CUDA memcpy DtoH]
-      0.000      1     0.000     0.000     0.000     0.000        0.000  [CUDA memcpy HtoD]
-
-Generated:
-    /clusteruy/home/gpgpu26/labFinal/ejemplo_cimg/output/lab_final.nsys-rep
-    /clusteruy/home/gpgpu26/labFinal/ejemplo_cimg/output/lab_final.sqlite
